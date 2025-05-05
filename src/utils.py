@@ -1,33 +1,11 @@
-# 113-2-WM-Final-Project
+import pandas as pd
+import os.path as path
+import re
+import ast
+from tqdm import tqdm
 
-# Dataset - H&M Kaggel
-- [link of dataset](https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data
-)
-
-# Project Structure
-```
-- data: only for small data
-- eda: 
-   - output: pics of eda_result.md
-- preprocessing
-- src
-```
-
-# Data 使用方式
-- [Data 存放位置](https://drive.google.com/drive/folders/15yY3Y58dTSp_yLDWK5TkhHQZEE-My069?usp=sharing)
-- For `session_{移除購買商品小於 n }_filtered_{移除消費者購買 session小於 t}.parquet`：
-   內部結構如下
-   ```
-   customer_id,session
-   00000dbacae5abe5e23885899a1fa44253a17956c6d1c3d25f88aa139fdfc657,([625548001, 176209023, 627759010], [0.044050847457627114, 0.035576271186440675, 0.03049152542372881], [Timestamp('2018-12-27 00:00:00'), Timestamp('2018-12-27 00:00:00'), Timestamp('2018-12-27 00:00:00'), Timestamp('2019-05-02 00:00:00')], [1, 1, 1])
-   ```
-   - customer_id: 消費者 id
-   - session: 該消費者的消費紀錄，分別包含`([articles_id], [prices], [timestamp], [channels])`
-
-   使用方法: `./src/utils.py`
-   ```
-   def load_session_file(file_path) -> list[dict]:
-    """python
+def load_session_file(file_path) -> list[dict]:
+    """
     Read a parquet file at path and parse the sessions column into a list of dicts:
 
     Returns:
@@ -71,6 +49,19 @@
         
     return result
 
-   ```
-   - 使用`pyarrow`提升讀取速度，無法使用請先 `pip install pyarrow`
-   
+    
+
+def main():
+    file = path.join("eda","session_10_filtered_10.parquet")
+    df = load_session_file(file)
+    raw = df[0]
+  
+        
+    for k,v in raw['sequences'].items():
+        print(f"{k}:\n")
+        for e in v:
+            print(f"({e}, {type(e)})")
+    
+
+if __name__ == "__main__":
+    main()
