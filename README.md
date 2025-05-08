@@ -1,7 +1,7 @@
 # 113-2-WM-Final-Project
 
 # Dataset - H&M Kaggel
-- [link of dataset](https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data
+- [link of H&M Kaggle dataset](https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data
 )
 
 # Project Structure
@@ -9,68 +9,57 @@
 - data: only for small data
 - eda: 
    - output: pics of eda_result.md
-- preprocessing
+- preprocessing: 
 - src
 ```
 
 # Data 使用方式
-- [Data 存放位置](https://drive.google.com/drive/folders/15yY3Y58dTSp_yLDWK5TkhHQZEE-My069?usp=sharing)
-- For `session_{移除購買商品小於 n }_filtered_{移除消費者購買 session小於 t}.parquet`：
-   內部結構如下
-   ```
-   customer_id,session
-   00000dbacae5abe5e23885899a1fa44253a17956c6d1c3d25f88aa139fdfc657,([625548001, 176209023, 627759010], [0.044050847457627114, 0.035576271186440675, 0.03049152542372881], [Timestamp('2018-12-27 00:00:00'), Timestamp('2018-12-27 00:00:00'), Timestamp('2018-12-27 00:00:00'), Timestamp('2019-05-02 00:00:00')], [1, 1, 1])
-   ```
-   - customer_id: 消費者 id
-   - session: 該消費者的消費紀錄，分別包含`([articles_id], [prices], [timestamp], [channels])`
+- [Data Space](https://drive.google.com/drive/folders/15yY3Y58dTSp_yLDWK5TkhHQZEE-My069?usp=sharing)
+## Classification of Data
+| Step | Description                                                            | Output Filename(s)                            |
+|------|------------------------------------------------------------------------|-----------------------------------------------|
+| 1    | Remove articles without `detail_desc` feature                          | `transaction_train_clean.csv`                 |
+| 2    | Remove articles with fewer than 5 transaction records (Cold Start)     | `transaction_5.csv`                           |
+| 3    | Remove transactions older than 24 weeks for each customer              | —                                             |
+| 4    | Remove customers with fewer than 4 or 6 transactions                   | `transaction_5_4.csv` / `transaction_5_6.csv` |
+| 5    | Turn transaction record into session-based data                        | `session_5_4.pkl` / `session_5_6.pkl`         |
+| 6    | Transform session data into baseline dataset (optional)               | `user_session_5_4.pkl` / `testing_data_5_4.pkl`<br>`user_session_5_6.pkl` / `testing_data_5_6.pkl` |
 
-   使用方法: `./src/utils.py`
-   ```
-   def load_session_file(file_path) -> list[dict]:
-    """python
-    Read a parquet file at path and parse the sessions column into a list of dicts:
-
-    Returns:
-        List[dict]: [
-            {
-                "customer_id": int,
-                "sequences": {
-                    "articles_id": List[int],
-                    "prices": List[float],
-                    "timestamp": List[pd.Timestamp],
-                    "channels": List[int]
-                }
-            },
-            ...
-        ]
-    """
-    df = pd.read_parquet(file_path, engine='pyarrow')
-
-    def parse_sessions(sessions_str):
-        
-        sessions_str_clean = re.sub(r"Timestamp\('([^']+)'\)", r"'\1'", sessions_str)
-        parsed_tuple = ast.literal_eval(sessions_str_clean)
-        articles_id = parsed_tuple[0]
-        prices = parsed_tuple[1]
-        timestamps_str = parsed_tuple[2]
-        channels = parsed_tuple[3]
-        timestamps = pd.to_datetime(timestamps_str)
-        return {
-            'articles_id': articles_id,
-            'prices': prices,
-            'timestamp': list(timestamps),
-            'channels': channels
-        }
-
-    result = []
-    for _, row in tqdm(df.iterrows(),unit=" row",desc="Loading"):
-        result.append({
-            'customer_id': row['customer_id'],
-            'sequences': parse_sessions(row['session'])
-        })
-        
-    return result
-
-   ```
-   - 使用`pyarrow`提升讀取速度，無法使用請先 `pip install pyarrow`
-   
+## Quick Start
+- For `transaction_....csv`
+    ```python
+    # Default data type for each cols
+    trans = pd.read_csv(r"C:\113-2-WM-Final-Project\data\transactions_train.csv",
+                 parse_dates=['t_dat'],
+                 dtype={
+                     'customer_id':'category',
+                     'article_id': 'int32',
+                     'sales_channel_id':'uint8'
+                 })
+    ```
+- For `*.pkl`:
+    ```python
+    import pickle
+    with open(r"your_file.pkl", "rb") as f:
+        file = pickle.load(f)
+    ```
+## Data Format
+- For `session_...` : `Dict[str, Dict[str, list]]`
+    ```
+    sessions : {
+        customer_id: {
+            'article_id'      : [int32, ...],
+            't_dat'           : [Timestamp, ...],
+            'price'           : [float32, ...],
+            'sales_channel_id': [uint8, ...]
+        },
+        ...
+     }
+    ```
+- For baseline dataset: `Dict[str, List[int]]`
+    ```
+    -   user_session : Dict[str, List[int]]
+            { uid: [iid_1, iid_2, ..., iid_n] }
+    -   testing_data : Dict[str, List[int]]
+            { uid: [neg_1, ..., neg_99, test_item] }
+    ```
