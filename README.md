@@ -17,15 +17,36 @@
 
 # Data 使用方式
 - [Data Space](https://drive.google.com/drive/folders/15yY3Y58dTSp_yLDWK5TkhHQZEE-My069?usp=sharing)
-## Classification of Data
-| Step | Description                                                            | Output Filename(s)                            |
-|------|------------------------------------------------------------------------|-----------------------------------------------|
-| 1    | Remove articles without `detail_desc` feature                          | `transaction_train_clean.csv`                 |
-| 2    | Remove articles with fewer than 5 transaction records (Cold Start)     | `transaction_5.csv`                           |
-| 3    | Remove transactions older than 24 weeks for each customer              | —                                             |
-| 4    | Remove customers with fewer than 4 or 6 transactions                   | `transaction_5_4.csv` / `transaction_5_6.csv` |
-| 5    | Turn transaction record into session-based data                        | `session_5_4.pkl` / `session_5_6.pkl`         |
-| 6    | Transform session data into baseline dataset (optional)               | `user_session_5_4.pkl` / `testing_data_5_4.pkl`<br>`user_session_5_6.pkl` / `testing_data_5_6.pkl` |
+- Data Folder Structure
+    ```
+    ├── original data/ : Kaggle Origial Data
+    ├── mapping data/  : Data with id mapping and preprocessing
+    ├── baseline data/ : Data for baseline model (without id mapping)
+    ```
+## Classification of `mapping data`
+- Mapping Dict:
+    | Filename | Description                                                               |
+    |----------|---------------------------------------------------------------------------|
+    | `customer_to_idx.pkl`               | `Dict[ orgin customer_id : int ]`              | 
+    | `idx_to_customer.pkl`               | `Dict[ int : orgin customer_id ]`               |
+    | `article_to_idx.pkl`                | `Dict[ orgin article_id : int ]`               | 
+    | `idx_to_article.pkl`                | `Dict[ int : orgin article_i ]`                | 
+- Data without preprocessing:
+    | Filename | Description                                                               |
+    |----------|---------------------------------------------------------------------------|
+    | `transaction_train_mapping.csv`       | 將原始 `customer_id`,`article_id` 進行 mapping| 
+    | `articles_mapping.csv`                | 將原始 `article_id` 進行 mapping              |
+    | `customer_mapping.csv`                | 將原始 `customer_id` 進行 mapping             | 
+                         
+- Data after preprocessing: 
+    | Step | Description                                                            | Output Filename(s)       |
+    |------|------------------------------------------------------------------------|-----------------------------------------------|
+    | 1    | Remove articles without `detail_desc` feature                          | `transaction_train_mapping_clean.csv`         |
+    | 2    | Remove articles with fewer than 5 transaction records (Cold Start)     | `transaction_5_mapping.csv`                   |
+    | 3    | Remove transactions older than 24 weeks for each customer              | —                                             |
+    | 4    | Remove customers with fewer than `4` or `6` transactions or more than `30` transactions| `transaction_5_4_30_mapping.csv` / `transaction_5_6_30_mapping.csv` |
+    | 5    | Turn transaction record into session-based data                        | `session_5_4_30_mapping.pkl` / `session_5_6_30_mapping.pkl`         |
+
 
 ## Quick Start
 - For `transaction_....csv`
@@ -34,9 +55,10 @@
     trans = pd.read_csv(r"C:\113-2-WM-Final-Project\data\transactions_train.csv",
                  parse_dates=['t_dat'],
                  dtype={
-                     'customer_id':'category',
-                     'article_id': 'int32',
-                     'sales_channel_id':'uint8'
+                     'customer_id':'int',
+                     'article_id': 'int',
+                     'price': 'float'
+                     'sales_channel_id':'int'
                  })
     ```
 - For `*.pkl`:
@@ -50,10 +72,10 @@
     ```
     sessions : {
         customer_id: {
-            'article_id'      : [int32, ...],
+            'article_id'      : [int, ...],
             't_dat'           : [Timestamp, ...],
             'price'           : [float32, ...],
-            'sales_channel_id': [uint8, ...]
+            'sales_channel_id': [int, ...]
         },
         ...
      }
