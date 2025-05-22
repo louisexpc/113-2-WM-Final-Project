@@ -7,6 +7,14 @@ from data_loader import load_pickle
 
 
 def extract_product_name(raw_output, fallback="Unknown Product"):
+    """
+    從 LLM 的輸出中提取商品名稱，並進行清理
+    Args:
+        raw_output (str): LLM 的原始輸出
+        fallback (str): 如果無法提取商品名稱，則返回的後備值
+    Returns:
+        str: 提取的商品名稱
+    """
     # Split the response into lines
     lines = raw_output.strip().split("\n")
 
@@ -30,8 +38,15 @@ def extract_product_name(raw_output, fallback="Unknown Product"):
     return fallback
 
 
-# === Extract a Python List from LLM Output ===
 def extract_list_from_text(text, fallback=None):
+    """
+    從 LLM 的輸出中提取 Python 列表，並進行清理
+    Args:
+        text (str): LLM 的原始輸出
+        fallback (list): 如果無法提取列表，則返回的後備值
+    Returns:
+        list: 提取的列表
+    """
     if not text or not isinstance(text, str):
         print("⚠️ Invalid input. Using fallback.")
         return fallback or []
@@ -57,11 +72,26 @@ def extract_list_from_text(text, fallback=None):
 
 
 def get_user_info(user_id: str, user_dataset: pd.DataFrame):
+    """
+    根據使用者 ID 從資料集中獲取使用者資訊
+    Args:
+        user_id (str): 使用者 ID
+        user_dataset (pd.DataFrame): 包含使用者資訊的資料集，必須包含 "customer_id" 欄位
+    Returns:
+        pd.DataFrame: 包含該使用者資訊的資料集
+    """
     user_info = user_dataset[user_dataset["customer_id"] == user_id]
     return user_info
 
 
 def get_current_season():
+    """
+    Deprecated
+    獲取當前季節
+    Returns:
+        str: 當前季節名稱
+    """
+
     current_date = datetime.now()
     current_month = current_date.month
     if current_month in [12, 1, 2]:
@@ -108,6 +138,15 @@ def get_product_name_examples(product_type):
     
 # === Pre-Filter Categories with Embeddings ===
 def prefilter_categories(items_list, category_list, top_k=20):
+    """
+    使用 SentenceTransformer 模型預過濾類別
+    Args:
+        items_list (list): 商品名稱列表
+        category_list (list): 類別名稱列表
+        top_k (int): 返回的前 K 個類別數量
+    Returns:
+        list: 前 K 個類別名稱
+    """
     model = SentenceTransformer("all-MiniLM-L6-v2")
     
     # Encode the history as a single vector
@@ -129,5 +168,12 @@ def prefilter_categories(items_list, category_list, top_k=20):
 
 
 def article_to_product_type(article_id):
+    """
+    根據 articleID 獲取對應的商品類別
+    Args:
+        article_id (str): article ID
+    Returns:
+        str: 對應的商品類別
+    """
     mapping = load_pickle("article_to_product_mapping.pkl")
     return mapping.get(article_id, "Unknown Product Type")
