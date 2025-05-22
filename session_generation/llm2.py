@@ -27,21 +27,21 @@ def get_product_name_from_product_type(product_type_dict: dict[str, list[str]], 
         for product_type in product_types:
             
             # 為這個使用者的所有類別生成商品名稱
-            system_prompt = """You are a fashion product naming assistant. 
-                            You MUST:
-                            1. Output ONLY ONE product name
-                            2. Follow the format strictly
-                            3. Never include explanations
-                            4. Never include quotes or brackets
-                            5. Never include emojis
-                            6. Never include any other text like "Sure, here is a product name for a jacket that meets the requirements:"
+            system_prompt = """
+            You are a fashion product naming assistant. 
+            You MUST:
+            1. Output ONLY ONE product name
+            2. Follow the format strictly
+            3. Never include explanations
+            4. Never include quotes or brackets
+            5. Never include emojis
+            6. Never include any other text like "Sure, here is a product name for a jacket that meets the requirements:"
 
-                            If you fail to follow these rules, the output will be rejected."""
+            If you fail to follow these rules, the output will be rejected."""
             user_prompt = f"""
             Generate **ONE** product name for {product_type} that is:
-            1. Appropriate for {current_season}, But not too specific and do not include season in the name
-            2. 2-4 words long
-            3. Unique and creative
+            1. 2-4 words long
+            2. Unique and creative
 
             Customer context:
             - Age: {user_info["age"]}
@@ -50,8 +50,8 @@ def get_product_name_from_product_type(product_type_dict: dict[str, list[str]], 
 
             Example: {get_product_name_examples(product_type)}
 
-            ⚠️ CRITICAL: Output ONLY **ONE** product name. No explanations, quotes, or additional text.
-            Format: Product Name
+            Output Format: Product Name
+            Output Example: Knit dress
             """
         
             # 生成回應
