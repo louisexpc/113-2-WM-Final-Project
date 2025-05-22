@@ -4,50 +4,53 @@ import ast
 import tqdm
 import pickle
 import pandas as pd
+from datetime import datetime
+
+
 def load_session_file(file_path) -> list[dict]:
- """python
- Read a parquet file at path and parse the sessions column into a list of dicts:
+    """python
+    Read a parquet file at path and parse the sessions column into a list of dicts:
 
- Returns:
-     List[dict]: [
-         {
-             "customer_id": int,
-             "sequences": {
-                 "articles_id": List[int],
-                 "prices": List[float],
-                 "timestamp": List[pd.Timestamp],
-                 "channels": List[int]
-             }
-         },
-         ...
-     ]
- """
- df = pd.read_parquet(file_path, engine='pyarrow')
+    Returns:
+        List[dict]: [
+            {
+                "customer_id": int,
+                "sequences": {
+                    "articles_id": List[int],
+                    "prices": List[float],
+                    "timestamp": List[pd.Timestamp],
+                    "channels": List[int]
+                }
+            },
+            ...
+        ]
+    """
+    df = pd.read_parquet(file_path, engine='pyarrow')
 
- def parse_sessions(sessions_str):
-     
-     sessions_str_clean = re.sub(r"Timestamp\('([^']+)'\)", r"'\1'", sessions_str)
-     parsed_tuple = ast.literal_eval(sessions_str_clean)
-     articles_id = parsed_tuple[0]
-     prices = parsed_tuple[1]
-     timestamps_str = parsed_tuple[2]
-     channels = parsed_tuple[3]
-     timestamps = pd.to_datetime(timestamps_str)
-     return {
-         'articles_id': articles_id,
-         'prices': prices,
-         'timestamp': list(timestamps),
-         'channels': channels
-     }
+    def parse_sessions(sessions_str):
+        
+        sessions_str_clean = re.sub(r"Timestamp\('([^']+)'\)", r"'\1'", sessions_str)
+        parsed_tuple = ast.literal_eval(sessions_str_clean)
+        articles_id = parsed_tuple[0]
+        prices = parsed_tuple[1]
+        timestamps_str = parsed_tuple[2]
+        channels = parsed_tuple[3]
+        timestamps = pd.to_datetime(timestamps_str)
+        return {
+            'articles_id': articles_id,
+            'prices': prices,
+            'timestamp': list(timestamps),
+            'channels': channels
+        }
 
- result = []
- for _, row in tqdm(df.iterrows(),unit=" row",desc="Loading"):
-     result.append({
-         'customer_id': row['customer_id'],
-         'sequences': parse_sessions(row['session'])
-     })
-     
- return result
+    result = []
+    for _, row in tqdm(df.iterrows(),unit=" row",desc="Loading"):
+        result.append({
+            'customer_id': row['customer_id'],
+            'sequences': parse_sessions(row['session'])
+        })
+        
+    return result
 
 
 def load_pickle(pickle_path):
@@ -71,8 +74,8 @@ def load_pickle(pickle_path):
     except Exception as e:
         print(f"Error loading pickle file: {str(e)}")
         return None
-
-
+    
+    
 def load_parquet(parquet_path):
     """
     Load a parquet file into a pandas DataFrame.
@@ -102,3 +105,5 @@ def load_parquet(parquet_path):
         print(f"[ERROR] {e}")
     except Exception as e:
         print(f"[ERROR] An unexpected error occurred while loading the parquet file: {e}")
+        
+        
