@@ -1,3 +1,9 @@
 *.csv
 *.pkl
 __pycache__/
+
+# core_helpers.py
+!product_name_examples.csv
+!article_to_product_mapping.pkl
+# main.py
+!product_types.csv
