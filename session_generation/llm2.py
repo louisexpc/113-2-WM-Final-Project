@@ -50,8 +50,8 @@ def get_product_name_from_product_type(product_type_dict: dict[str, list[str]], 
 
             Example: {get_product_name_examples(product_type)}
 
-            Output Format: Product Name
-            Output Example: Knit dress
+            Output Format: [Product Name]
+            Output Example: [Knit dress]
             """
         
             # 生成回應
@@ -65,7 +65,7 @@ def get_product_name_from_product_type(product_type_dict: dict[str, list[str]], 
             print("===" * 20)
         
         # 解析回應
-            product_name = extract_product_name(response, fallback=f"Unknown {product_type}")
+            product_name = extract_product_name(response)
             product_names.append(product_name)
         result[user_id] = product_names
         
