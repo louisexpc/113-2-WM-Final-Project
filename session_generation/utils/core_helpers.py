@@ -1,41 +1,12 @@
+import os
+
+BASE_DIR = os.path.dirname(__file__)  # ⬅︎ 加在檔案最上方一次即可
 import re
 import ast
 import pandas as pd
 from datetime import datetime
 from sentence_transformers import SentenceTransformer, util
-from data_loader import load_pickle
-
-
-def extract_product_name(raw_output, fallback="Unknown Product"):
-    """
-    從 LLM 的輸出中提取商品名稱，並進行清理
-    Args:
-        raw_output (str): LLM 的原始輸出
-        fallback (str): 如果無法提取商品名稱，則返回的後備值
-    Returns:
-        str: 提取的商品名稱
-    """
-    # Split the response into lines
-    lines = raw_output.strip().split("\n")
-
-    # Find the last non-empty line
-    for line in reversed(lines):
-        clean_line = line.strip()
-        if clean_line:
-            # Remove common prefixes
-            for prefix in ["Sure,", "Here is", "Here are", "Of course,", "I'd be happy to help!"]:
-                if clean_line.lower().startswith(prefix.lower()):
-                    clean_line = clean_line[len(prefix):].strip()
-            # Remove category hints if present
-            clean_line = re.sub(r'for the ".+?" category', "", clean_line).strip()
-            
-            # Return the cleaned line if it looks like a product name
-            if clean_line and len(clean_line.split()) >= 2:
-                return clean_line
-
-    # Fallback if no valid name is found
-    print(f"⚠️ No valid product name found in: '{raw_output}'")
-    return fallback
+from utils.data_loader import load_pickle
 
 
 def extract_list_from_text(text, fallback=None):
@@ -117,8 +88,9 @@ def get_product_name_examples(product_type):
         str: 該類別的商品名稱範例，以逗號分隔
     """
     try:
+        csv_path = os.path.join(BASE_DIR, "product_name_examples.csv")
         # 讀取 CSV 檔案，指定分隔符為 ':'
-        product_examples = pd.read_csv("product_name_examples.csv", 
+        product_examples = pd.read_csv(csv_path, 
                                       sep=':', 
                                       names=['product_type', 'examples'])
 
@@ -175,5 +147,25 @@ def article_to_product_type(article_id):
     Returns:
         str: 對應的商品類別
     """
-    mapping = load_pickle("article_to_product_mapping.pkl")
+    mapping_path = os.path.join(BASE_DIR, "article_to_product_mapping.pkl")
+    mapping = load_pickle(mapping_path)
     return mapping.get(article_id, "Unknown Product Type")
+
+
+def extract_product_name(text: str, fallback: str = "Unknown Product") -> str:
+    """
+    從文字中提取 [product name] 形式的商品名稱
+    
+    Args:
+        text (str): LLM 的原始輸出
+        fallback (str): 如果找不到符合格式，使用此預設值
+    
+    Returns:
+        str: 商品名稱（無中括號）
+    """
+    match = re.search(r"\[([^\[\]]+)\]", text)
+    if match:
+        return match.group(1).strip()
+    else:
+        print(f"⚠️ No product name found in: {text}")
+        return fallback
