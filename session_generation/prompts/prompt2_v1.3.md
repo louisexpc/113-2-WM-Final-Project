@@ -2,7 +2,7 @@
 
 **update note**: 
 
-規定 output 的 product name 要被 [ ] 包起來
+新增在 system prompt 中也規定 output 的 product name 要被 [ ] 包起來
 
 **system prompt**: 
 ```plaintext
