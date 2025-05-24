@@ -2,12 +2,12 @@ import pandas as pd
 from tqdm import tqdm
 from vllm import LLM, SamplingParams
 from transformers import PreTrainedTokenizer
-from utils.core_helpers import get_current_season, get_product_name_examples, extract_product_name
+from utils.core_helpers import get_product_name_examples, extract_product_name, get_user_info
 # 呼叫這個 function 前，要先將 customers.parquet 讀進 pd.DataFrame
 
 def get_product_name_from_product_type(
     product_type_dict: dict[str, list[str]], 
-    user_info: pd.DataFrame, 
+    customers_df: pd.DataFrame, 
     llm=LLM, 
     tokenizer=PreTrainedTokenizer,
     sampling_params=SamplingParams
@@ -16,8 +16,8 @@ def get_product_name_from_product_type(
     
     Args:
         product_type_dict: {user_id: [product_type1, product_type2, ...]}
-        user_info: pd.DataFrame, 使用者資料，包含 age, fashion_news_frequency, club_member_status
-        
+        customers_df: pd.DataFrame, 使用者資料，包含 age, fashion_news_frequency, club_member_status
+
     Returns:
         dict[str, list[str]]: {user_id: [product_name1, product_name2, ...]}
         每個 product_name 對應 product_type_dict 中相同位置的 product_type
@@ -25,12 +25,12 @@ def get_product_name_from_product_type(
     result = {}
     
     for user_id, product_types in tqdm(product_type_dict.items(), desc="Processing users"):
+        user_info = get_user_info(user_id, customers_df)
         if user_info.empty:
             print(f"⚠️ No user info found for {user_id}")
             result[user_id] = ["Unknown"] * len(product_types)
             continue
         
-        product_names = []
         prompts = []
         user_map = []
         for product_type in product_types:

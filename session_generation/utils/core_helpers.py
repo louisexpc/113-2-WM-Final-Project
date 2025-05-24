@@ -95,7 +95,7 @@ def get_product_name_examples(product_type):
                                       names=['product_type', 'examples'])
 
         # 找到對應類別並回傳範例
-        examples = product_examples[product_examples["product_type"] == product_type]["examples"].values
+        examples = product_examples[product_examples["product_type"].str.lower() == product_type.lower()]["examples"].values
 
         if len(examples) == 0:
             print(f"⚠️ 找不到類別 '{product_type}' 的範例")
