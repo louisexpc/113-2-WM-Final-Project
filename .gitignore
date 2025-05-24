@@ -8,3 +8,6 @@ __pycache__/
 !article_to_product_mapping.pkl
 # main.py
 !product_types.csv
+
+# model cache
+session_generation/hf_cache/*
