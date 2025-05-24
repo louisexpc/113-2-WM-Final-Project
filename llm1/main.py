@@ -66,7 +66,7 @@ if __name__ == "__main__":
 
         try:
             user_session = {user_id: user_sessions[user_id]}
-            enriched_session = enrich_user_sessions(tokenizer, model, user_session, category_list, total_len=total_len, top_k=top_k, short_model=short_model, prompt_path=prompt_path)
+            enriched_session = enrich_user_sessions(tokenizer, model, user_session, category_list, total_len=args.total_len, top_k=args.top_k, short_model=short_model, prompt_path=args.prompt_path)
             enriched[user_id] = enriched_session
             print(f"✔️ Successfully enriched {user_id}")
         except Exception as e:
