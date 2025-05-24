@@ -17,7 +17,7 @@ from sentence_transformers import SentenceTransformer, util
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 from huggingface_hub import login
-login("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")
+login("Token")
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Enrich user sessions with LLM + category embedding")
