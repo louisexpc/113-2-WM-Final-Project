@@ -10,4 +10,5 @@ __pycache__/
 !product_types.csv
 
 # model cache
-session_generation/hf_cache/*
+session_generation/llama2_hf_cache/*
+session_generation/llama3_hf_cache/*
