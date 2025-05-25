@@ -1,10 +1,20 @@
 import os
 import pickle
+import argparse
 from vllm import LLM, SamplingParams
 import pandas as pd
 from transformers import AutoTokenizer
 from utils.data_loader import load_pickle
 from llm2_vllm import get_product_name_from_product_type
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Generate product names from product types using vLLM.")
+    parser.add_argument("--gpu", type=int, default=4, help="Which GPU to use (e.g., 0, 1, 5)")
+    parser.add_argument("--batch_size", type=int, default=10, help="Number of users to process per batch")
+    parser.add_argument("--input_path", type=str, default="data/llama3_enriched_sessions4_final.pkl", help="Path to input session pickle file")
+    parser.add_argument("--output_path", type=str, default="data/generated_product_name_4.pkl", help="Path to output result pickle file")
+    return parser.parse_args()
 
 
 def save_result_incrementally(result_dict, output_path):
@@ -30,9 +40,11 @@ def load_existing_user_ids(output_path):
 
 
 def main():
+    args = parse_args()
+    
     try:
         os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-        os.environ["CUDA_VISIBLE_DEVICES"] = "5"  # Set to the GPU you want to use, "4" is 4090
+        os.environ["CUDA_VISIBLE_DEVICES"] = str(args.gpu)  # Set to the GPU you want to use, "4" is 4090
         os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"  # 改善初始化階段的記憶體碎片問題
         
         # Load the model and tokenizer
@@ -81,9 +93,9 @@ def main():
         # }   
         
         
-        sessions_dict = load_pickle("data/llama3_enriched_sessions4_final.pkl")
+        sessions_dict = load_pickle(args.input_path)
         customers_df = pd.read_parquet('data/customers.parquet')
-        output_path = "data/generated_product_name_4.pkl"
+        output_path = args.output_path
         
         # === 載入已處理過的 user_id ===
         processed_users = load_existing_user_ids(output_path)
@@ -93,7 +105,7 @@ def main():
         batch = {}
         count = 0
         skipped = 0
-        BATCH_SIZE = 10  # 每批處理的數量
+        BATCH_SIZE = args.batch_size  # 每批處理的數量
         for user_id, product_types in sessions_dict.items():
             if user_id in processed_users:
                 skipped += 1
