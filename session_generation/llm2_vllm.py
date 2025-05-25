@@ -30,7 +30,6 @@ def get_product_name_from_product_type(
             print(f"⚠️ No user info found for {user_id}")
             result[user_id] = ["Unknown"] * len(product_types)
             continue
-        
         prompts = []
         user_map = []
         for product_type in product_types:
@@ -69,7 +68,7 @@ def get_product_name_from_product_type(
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
             ]
-            
+
             prompt = tokenizer.apply_chat_template(
                 messages,
                 tokenize=False,
@@ -78,13 +77,13 @@ def get_product_name_from_product_type(
             prompts.append(prompt)
             user_map.append((user_id, product_type))
             
-    outputs = llm.generate(prompts, sampling_params)
-    
-    result = {}
-    for (user_id, product_type), output in zip(user_map, outputs):
-        raw_text = output.outputs[0].text.strip()
-        print(f"Response for {user_id} - {product_type}:\n{raw_text}\n" + "===" * 20)
-        product_name = extract_product_name(raw_text)
-        result.setdefault(user_id, []).append(product_name)
+        outputs = llm.generate(prompts, sampling_params)
+        print(f"Generated {len(outputs)} outputs for {len(user_map)} prompts.")
+        
+        
+        for (user_id, product_type), output in zip(user_map, outputs):
+            raw_text = output.outputs[0].text.strip()
+            product_name = extract_product_name(raw_text)
+            result.setdefault(user_id, []).append(product_name)
     
     return result
