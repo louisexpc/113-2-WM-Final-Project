@@ -63,3 +63,5 @@ def run_enrichment(cfg, output_dir, logger):
     with open(final_path, "wb") as f:
         pickle.dump(enriched, f)
     logger.info(f"✅ Final output saved to {final_path}")
+
+    return model, tokenizer

@@ -17,7 +17,7 @@ save:
   checkpoint_path: enriched_sessions_checkpoint.pkl
   final_output_path: enriched_sessions_final.pkl
   batch_size: 10
-  max_users: 10000
+  max_users: 30
 
 device:
   cuda_visible_devices: "5"

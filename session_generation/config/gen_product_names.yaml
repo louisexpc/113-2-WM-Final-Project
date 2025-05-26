@@ -1,0 +1,23 @@
+experiment:
+  id: gen_product_names_llama3
+  output_base_dir: ./experiments/gen_product_names/
+  create_timestamp_dir: true
+
+device:
+  cuda_visible_devices: "4" 
+
+llm:
+  model_name: meta-llama/Llama-3.1-8b-Instruct
+  local_model_dir: ./llama3_hf_cache
+  gpu_memory_utilization: 0.8
+  max_model_len: 2048
+  max_num_seqs: 16
+  temperature: 0.3
+  top_p: 0.9
+  max_tokens: 128
+
+data:
+  input_path: dataset/llama3_enriched_sessions4_final.pkl
+  customers_path: dataset/customers.csv
+  output_path: dataset/generated_product_name_4.pkl
+  batch_size: 10
