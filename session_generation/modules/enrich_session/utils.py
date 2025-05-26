@@ -28,8 +28,8 @@ def extract_user_sessions_from_raw(raw_data):
     return simplified
 
 # --- Convert article_id to product type (mapping file needed) ---
-def article_to_product_type(article_id):
-    mapping = load_pickle("/home/guest/r13946008/HW/IR/final/dataset/article_to_product_mapping.pkl")
+def article_to_product_type(article_id,path):
+    mapping = load_pickle(path)
     return mapping.get(article_id, "Unknown Product Type")
 
 

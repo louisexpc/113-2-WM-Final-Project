@@ -4,13 +4,14 @@ model:
   top_k: 20
   total_len: 30
 
-short_mdoel:
+short_model:
   name: all-MiniLM-L6-v2
 
 data:
   session_path: dataset/sessions_5_6_30_mapping.pkl
   category_csv: dataset/product_types.csv
   prompt_path: prompts/get_product_type_from_history_prompt.txt
+  article_to_product_mapping_path: dataset/article_to_product_mapping.pkl
 
 save:
   checkpoint_path: enriched_sessions_checkpoint.pkl

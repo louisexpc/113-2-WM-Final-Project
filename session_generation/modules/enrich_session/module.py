@@ -1,13 +1,13 @@
 from .utils import *
 
 # === 主邏輯：補足使用者 Session 到 30 筆 ===
-def enrich_user_sessions(tokenizer, model, user_sessions, category_list, total_len, top_k, short_model, prompt_path):
+def enrich_user_sessions(tokenizer, model, user_sessions, category_list, total_len, top_k, short_model, prompt_path,mapping_file_path):
     enriched_sessions = {}
     for uid, items in user_sessions.items():
         needed = total_len - len(items)
 
         # Step 1: 歷史描述轉文字
-        history_str = " ".join([article_to_product_type(item) for item in items])
+        history_str = " ".join([article_to_product_type(item,mapping_file_path) for item in items])
         print(f"User: {uid}, History: {history_str}\n")
 
         # Step 2: 取得前 top_k 類別

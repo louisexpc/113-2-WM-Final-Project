@@ -46,7 +46,7 @@ def run_enrichment(cfg, output_dir, logger):
             enriched_session = enrich_user_sessions(
                 tokenizer, model, user_session, category_list,
                 total_len=cfg.model.total_len, top_k=cfg.model.top_k,
-                short_model=short_model, prompt_path=cfg.data.prompt_path
+                short_model=short_model, prompt_path=cfg.data.prompt_path,mapping_file_path=cfg.data.article_to_product_mapping_path
             )
             enriched[user_id] = enriched_session
         except Exception as e:
