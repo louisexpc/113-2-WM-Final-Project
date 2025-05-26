@@ -14,7 +14,6 @@ sessions_5_4.pkl & sessions_5_6.pkl in [here](https://drive.google.com/drive/fol
 llm1
 ├── dataset/
 │ ├── get_product_type_from_history_prompt.txt
-│ ├── article_to_product_mapping.pkl
 │ ├── product_types.csv
 │ ├── sessions_5_4.pkl
 │ ├── sessions_5_6.pkl
