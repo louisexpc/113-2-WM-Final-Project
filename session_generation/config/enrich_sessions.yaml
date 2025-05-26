@@ -1,0 +1,31 @@
+# config/enrich_sessions.yaml
+model:
+  name: meta-llama/Llama-2-7b-chat-hf
+  top_k: 20
+  total_len: 30
+
+short_mdoel:
+  name: all-MiniLM-L6-v2
+
+data:
+  session_path: dataset/sessions_5_6_30_mapping.pkl
+  category_csv: dataset/product_types.csv
+  prompt_path: prompts/get_product_type_from_history_prompt.txt
+
+save:
+  checkpoint_path: enriched_sessions_checkpoint.pkl
+  final_output_path: enriched_sessions_final.pkl
+  batch_size: 10
+  max_users: 10000
+
+device:
+  cuda_visible_devices: "5"
+
+experiment:
+  id: enrich_0526_llama_v1
+  output_base_dir: ./experiments/enrich_sessions/
+  create_timestamp_dir: true  # 是否在 output_dir 後自動加上 timestamp
+
+hf:
+  use_token: true
+  token_env_key: HF_TOKEN   # 對應 os.environ["HF_TOKEN"]
