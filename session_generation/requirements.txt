@@ -6,3 +6,4 @@ pandas
 pyyaml
 python-dotenv
 huggingface_hub
+vllm

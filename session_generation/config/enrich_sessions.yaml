@@ -1,6 +1,6 @@
 # config/enrich_sessions.yaml
 model:
-  name: meta-llama/Llama-2-7b-chat-hf
+  name: meta-llama/Llama-3.1-8b-Instruct
   top_k: 20
   total_len: 30
 
@@ -14,8 +14,8 @@ data:
   article_to_product_mapping_path: dataset/article_to_product_mapping.pkl
 
 save:
-  checkpoint_path: enriched_sessions_checkpoint.pkl
-  final_output_path: enriched_sessions_final.pkl
+  checkpoint_path: dataset/enriched_sessions_checkpoint.pkl
+  final_output_path: dataset/enriched_sessions_final.pkl
   batch_size: 10
   max_users: 30
 

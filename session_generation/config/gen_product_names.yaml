@@ -6,7 +6,7 @@ experiment:
 device:
   cuda_visible_devices: "4" 
 
-llm:
+model:
   model_name: meta-llama/Llama-3.1-8b-Instruct
   local_model_dir: ./llama3_hf_cache
   gpu_memory_utilization: 0.8
@@ -17,7 +17,7 @@ llm:
   max_tokens: 128
 
 data:
-  input_path: dataset/llama3_enriched_sessions4_final.pkl
+  input_path: dataset/enriched_sessions_final.pkl
   customers_path: dataset/customers.csv
   output_path: dataset/generated_product_name_4.pkl
   batch_size: 10
