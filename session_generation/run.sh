@@ -7,8 +7,8 @@ GPU_ID=5
 BATCH_SIZE=10
 
 # 設定輸入與輸出檔案
-INPUT_PATH="data/llama3_enriched_sessions4_final.pkl"
-OUTPUT_PATH="data/generated_product_name_4.pkl"
+INPUT_PATH="data/llama3_enriched_sessions6_checkpoint.pkl"
+OUTPUT_PATH="data/generated_product_name_6.pkl"
 
 python main_product_name.py \
     --gpu $GPU_ID \
