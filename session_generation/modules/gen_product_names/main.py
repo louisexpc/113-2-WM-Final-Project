@@ -3,9 +3,9 @@ import pickle
 import pandas as pd
 from vllm import LLM, SamplingParams
 from transformers import AutoTokenizer
-from utils.data_loader import load_pickle
-from llm2_vllm import get_product_name_from_product_type_vllm
-from llm2 import get_product_name_from_product_type
+from .utils.data_loader import load_pickle
+from .llm2_vllm import get_product_name_from_product_type_vllm
+from .llm2 import get_product_name_from_product_type
 
 
 

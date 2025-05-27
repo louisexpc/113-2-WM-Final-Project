@@ -6,7 +6,7 @@ import ast
 import pandas as pd
 from datetime import datetime
 from sentence_transformers import SentenceTransformer, util
-from utils.data_loader import load_pickle
+from .data_loader import load_pickle
 
 
 def extract_list_from_text(text, fallback=None):

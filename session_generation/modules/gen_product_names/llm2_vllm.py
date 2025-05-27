@@ -2,7 +2,7 @@ import pandas as pd
 from tqdm import tqdm
 from vllm import LLM, SamplingParams
 from transformers import PreTrainedTokenizer
-from utils.core_helpers import get_product_name_examples, extract_product_name, get_user_info
+from .utils.core_helpers import get_product_name_examples, extract_product_name, get_user_info
 
 # 呼叫這個 function 前，要先將 customers.parquet 讀進 pd.DataFrame
 
