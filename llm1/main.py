@@ -12,22 +12,24 @@ from collections import Counter
 from utils import *
 from module import *
 import argparse
+from vllm import LLM, SamplingParams
 
 from sentence_transformers import SentenceTransformer, util
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 from huggingface_hub import login
-login("Token")
+login("")
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Enrich user sessions with LLM + category embedding")
     
     parser.add_argument("--model_name", type=str, default="meta-llama/Llama-2-7b-chat-hf", help="HuggingFace model name")
-    parser.add_argument("--session_path", type=str, default="dataset/sessions_5_4.pkl", required=True, help="Path to user session .pkl file")
+    parser.add_argument("--session_path", type=str, default="dataset/sessions_5_4_30_mapping.pkl", required=True, help="Path to user session .pkl file")
     parser.add_argument("--category_csv", type=str, default="dataset/product_types.csv", required=True, help="Path to product_types.csv")
-    parser.add_argument("--prompt_path", type=str, default="get_product_type_from_history_prompt.txt", required=True, help="Path to LLM prompt .txt file")
-    parser.add_argument("--save_path", type=str, default="enriched_sessions_checkpoint.pkl", help="Checkpoint save path")
-    parser.add_argument("--final_save_path", type=str, default="enriched_sessions_final.pkl", help="Final output save path")
+    parser.add_argument("--prompt_path", type=str, default="dataset/get_product_type_from_history_prompt.txt", required=True, help="Path to LLM prompt .txt file")
+    parser.add_argument("--mapping_path", type=str, default="dataset/articles_mapping.csv", required=True, help="Path to mapping product_type from articleID .csv file")
+    parser.add_argument("--save_path", type=str, default="enriched_sessions4_checkpoint.pkl", help="Checkpoint save path")
+    parser.add_argument("--final_save_path", type=str, default="enriched_sessions4_final.pkl", help="Final output save path")
     parser.add_argument("--batch_size", type=int, default=10, help="Save every N users")
     parser.add_argument("--max_users", type=int, default=10000, help="Maximum number of users to process")
     parser.add_argument("--total_len", type=int, default=30, help="Total session length after enrichment")
@@ -41,8 +43,10 @@ if __name__ == "__main__":
     args = parse_args()
 
     # --- Load Models ---
+    model = LLM(model=args.model_name, dtype='float16')
+
     tokenizer = AutoTokenizer.from_pretrained(args.model_name)
-    model = AutoModelForCausalLM.from_pretrained(args.model_name, device_map="auto", torch_dtype = torch.float16)
+    # model = AutoModelForCausalLM.from_pretrained(args.model_name, device_map="auto", torch_dtype = torch.float16)
 
     # === Pre-Filter Categories with Embeddings ===
     short_model = SentenceTransformer("all-MiniLM-L6-v2")
@@ -66,8 +70,8 @@ if __name__ == "__main__":
 
         try:
             user_session = {user_id: user_sessions[user_id]}
-            enriched_session = enrich_user_sessions(tokenizer, model, user_session, category_list, total_len=args.total_len, top_k=args.top_k, short_model=short_model, prompt_path=args.prompt_path)
-            enriched[user_id] = enriched_session
+            enriched_session, k = enrich_user_sessions(tokenizer, model, user_session, category_list, total_len=args.total_len, top_k=args.top_k, short_model=short_model, prompt_path=args.prompt_path, mapping_path= args.mapping_path)
+            enriched[user_id] = (enriched_session, k)
             print(f"✔️ Successfully enriched {user_id}")
         except Exception as e:
             print(f"❌ Failed for user {user_id}: {e}")
