@@ -15,6 +15,7 @@ llm1
 ├── dataset/
 │ ├── get_product_type_from_history_prompt.txt
 │ ├── product_types.csv
+│ ├── articles_mapping.csv
 │ ├── sessions_5_4.pkl
 │ ├── sessions_5_6.pkl
 │ └── article_to_product_mapping.pkl
