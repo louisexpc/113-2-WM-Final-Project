@@ -39,6 +39,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 --session_path: Path to user session .pkl file
 --category_csv: Path to product_types.csv
 --prompt_path: Path to LLM prompt .txt file
+--mapping_path: Path to mapping product_type from articleID .csv file
 --save_path: Checkpoint save path
 --final_save_path: Final output save path
 --batch_size: Save every N users
