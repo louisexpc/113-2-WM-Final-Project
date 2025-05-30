@@ -73,13 +73,13 @@ def run_enrichment(cfg, output_dir, logger):
             logger.warning(f"❌ Failed for user {user_id}: {e}")
 
         if (i + 1) % cfg.save.batch_size == 0:
-            checkpoint_path = os.path.join(output_dir, os.path.basename(cfg.save.checkpoint_path))
+            checkpoint_path = os.path.join(cfg.save.checkpoint_path)
             with open(checkpoint_path, "wb") as f:
                 pickle.dump(enriched, f)
             logger.info(f"💾 Saved checkpoint at {i+1} users")
 
     # === 最終儲存 ===
-    final_path = os.path.join(output_dir, os.path.basename(cfg.save.final_output_path))
+    final_path = os.path.join(cfg.save.final_output_path)
     with open(final_path, "wb") as f:
         pickle.dump(enriched, f)
     logger.info(f"✅ Final output saved to {final_path}")

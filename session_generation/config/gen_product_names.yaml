@@ -18,6 +18,6 @@ model:
 
 data:
   input_path: dataset/enriched_sessions_final.pkl
-  customers_path: dataset/customers.csv
+  customers_path: dataset/customers_mapping.csv
   output_path: dataset/generated_product_name_4.pkl
   batch_size: 5
