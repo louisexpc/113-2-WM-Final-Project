@@ -13,7 +13,7 @@ from .module import *
 
 def run_enrichment(cfg, output_dir, logger):
     # === 設定 GPU ===
-    os.environ["CUDA_DIVICE_ORDER"] = "PCI_BUS_ID"
+    os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
     os.environ["CUDA_VISIBLE_DEVICES"] = cfg.device.cuda_visible_devices
 
     # === 載入模型 ===
@@ -27,11 +27,19 @@ def run_enrichment(cfg, output_dir, logger):
         if token:
             login(token)
 
-    model = LLM(model=cfg.model.name, dtype='float16')
+    # model = LLM(model=cfg.model.name, dtype='float16')
+    logger.info(f"🚀 載入模型: {cfg.model.name}")
+    model = LLM(
+        model=cfg.model.name,
+        gpu_memory_utilization=cfg.model.gpu_memory_utilization,
+        max_model_len=cfg.model.max_model_len,
+        max_num_seqs=cfg.model.max_num_seqs,
+         dtype='float16'
+    )
     tokenizer = AutoTokenizer.from_pretrained(cfg.model.name)
 
     # === Pre-Filter Categories with Embeddings ===
-    short_model = SentenceTransformer("all-MiniLM-L6-v2")
+    # short_model = SentenceTransformer("all-MiniLM-L6-v2")
     short_model = SentenceTransformer(cfg.short_model.name)
 
     # === 載入資料 ===
@@ -65,13 +73,13 @@ def run_enrichment(cfg, output_dir, logger):
             logger.warning(f"❌ Failed for user {user_id}: {e}")
 
         if (i + 1) % cfg.save.batch_size == 0:
-            checkpoint_path = os.path.join(output_dir, "checkpoint.pkl")
+            checkpoint_path = os.path.join(output_dir, os.path.basename(cfg.save.checkpoint_path))
             with open(checkpoint_path, "wb") as f:
                 pickle.dump(enriched, f)
             logger.info(f"💾 Saved checkpoint at {i+1} users")
 
     # === 最終儲存 ===
-    final_path = os.path.join(output_dir, "final.pkl")
+    final_path = os.path.join(output_dir, os.path.basename(cfg.save.final_output_path))
     with open(final_path, "wb") as f:
         pickle.dump(enriched, f)
     logger.info(f"✅ Final output saved to {final_path}")

@@ -7,7 +7,7 @@ from .utils.core_helpers import get_product_name_examples, extract_product_name,
 # 呼叫這個 function 前，要先將 customers.parquet 讀進 pd.DataFrame
 
 def get_product_name_from_product_type_vllm(
-    product_type_dict: dict[str, list[str]], 
+    product_type_dict: dict[str, tuple[list[str], str]], 
     customers_df: pd.DataFrame, 
     llm=LLM, 
     tokenizer=PreTrainedTokenizer,
@@ -16,7 +16,7 @@ def get_product_name_from_product_type_vllm(
     """為每個使用者的每個類別生成對應的商品名稱
     
     Args:
-        product_type_dict: {user_id: [product_type1, product_type2, ...]}
+        product_type_dict: {user_id: ([product_type1, product_type2, ...], k)}
         customers_df: pd.DataFrame, 使用者資料，包含 age, fashion_news_frequency, club_member_status
 
     Returns:
@@ -24,16 +24,22 @@ def get_product_name_from_product_type_vllm(
         每個 product_name 對應 product_type_dict 中相同位置的 product_type
     """
     result = {}
-    
-    for user_id, product_types in tqdm(product_type_dict.items(), desc="Processing users"):
+
+    for user_id, (product_types, k) in tqdm(product_type_dict.items(), desc="Processing users"):
         user_info = get_user_info(user_id, customers_df)
         if user_info.empty:
             print(f"⚠️ No user info found for {user_id}")
             result[user_id] = ["Unknown"] * len(product_types)
             continue
+        
+        # 初始化修正
+        result[user_id] = [None] * len(product_types)
+
         prompts = []
         user_map = []
-        for product_type in product_types:
+        for i, product_type in enumerate(product_types):
+            if i < k-1:
+                continue
             
             # 為這個使用者的所有類別生成商品名稱
             system_prompt = """
@@ -76,15 +82,15 @@ def get_product_name_from_product_type_vllm(
                 add_generation_prompt=True
             )
             prompts.append(prompt)
-            user_map.append((user_id, product_type))
+            user_map.append((user_id, i))
             
         outputs = llm.generate(prompts, sampling_params)
         print(f"Generated {len(outputs)} outputs for {len(user_map)} prompts.")
         
         
-        for (user_id, product_type), output in zip(user_map, outputs):
+        for (user_id, index), output in zip(user_map, outputs):
             raw_text = output.outputs[0].text.strip()
             product_name = extract_product_name(raw_text)
-            result.setdefault(user_id, []).append(product_name)
+            result[user_id][index] = product_name
     
     return result

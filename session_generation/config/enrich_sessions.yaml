@@ -2,8 +2,11 @@
 model:
   name: meta-llama/Llama-3.1-8b-Instruct
   top_k: 20      # Number of top categories for similarity filtering
-  batch_size: 10 # Save every N users
+  batch_size: 5 # Save every N users
   total_len : 30 # Total session length after enrichment
+  gpu_memory_utilization: 0.8
+  max_model_len: 2048
+  max_num_seqs: 16
 
 short_model:
   name: all-MiniLM-L6-v2
@@ -17,11 +20,11 @@ data:
 save:
   checkpoint_path: dataset/enriched_sessions_checkpoint.pkl
   final_output_path: dataset/enriched_sessions_final.pkl
-  batch_size: 10
-  max_users: 30
+  batch_size: 5
+  max_users: 10
 
 device:
-  cuda_visible_devices: "5"
+  cuda_visible_devices: "4"
 
 experiment:
   id: enrich_0526_llama_v1
