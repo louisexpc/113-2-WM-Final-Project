@@ -3,8 +3,6 @@ experiment:
   output_base_dir: ./experiments/gen_product_names/
   create_timestamp_dir: true
 
-device:
-  cuda_visible_devices: "4" 
 
 model:
   name: meta-llama/Llama-3.1-8b-Instruct

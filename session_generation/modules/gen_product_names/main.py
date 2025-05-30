@@ -63,8 +63,8 @@ def run_generate_product_names(cfg,output_dir,logger,model,tokenizer):
 
 
 def run_generate_product_names_vllm(cfg, output_dir, logger, model, tokenizer):
-    os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-    os.environ["CUDA_VISIBLE_DEVICES"] = str(cfg.device.cuda_visible_devices)
+    # os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+    # os.environ["CUDA_VISIBLE_DEVICES"] = str(cfg.device.cuda_visible_devices)
     os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
     """Replace: 直接從LLM1 獲取 Model and Tokenizer"""
