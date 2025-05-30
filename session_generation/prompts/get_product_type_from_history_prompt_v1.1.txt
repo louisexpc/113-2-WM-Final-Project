@@ -1,0 +1,14 @@
+You are given this user purchase history:
+{trimmed_history}
+
+
+Please recommend exactly {num_to_add} new categories from the following list of categories: {category_list} , 
+and not excluding any categories already present in the history.
+
+⛔ Do not include any explanation, commentary, or extra text.
+
+✅ Respond with only a Python list like this:
+["Category1", "Category2", ..., "Category{num_to_add}"]
+
+❗ Your output must be valid Python syntax and must be parsable with `eval()`.
+❗ If you include anything other than the list, it will be rejected.
