@@ -8,7 +8,7 @@ import ast
 from tqdm import tqdm
 from collections import Counter
 from sentence_transformers import SentenceTransformer, util
-
+from vllm import LLM, SamplingParams
 # ---- Load data ----
 def load_pickle(path):
     with open(path, 'rb') as f:
@@ -28,9 +28,18 @@ def extract_user_sessions_from_raw(raw_data):
     return simplified
 
 # --- Convert article_id to product type (mapping file needed) ---
-def article_to_product_type(article_id,path):
-    mapping = load_pickle(path)
-    return mapping.get(article_id, "Unknown Product Type")
+## TODO
+def article_to_product_type(article_id, path):
+    # mapping = load_pickle("article_to_product_mapping.pkl")
+    # return mapping.get(article_id, "Unknown Product Type")
+    article_product_df = pd.read_csv(path)
+    print(f"article_id: {article_id}")
+    print(f"article_product_df['article_id']: {article_product_df['article_id']}")
+    match = article_product_df[article_product_df['article_id'] == article_id]['product_type_name']
+    if not match.empty:
+        return match.iloc[0]  # 回傳第一個值的字串
+    else:
+        return "Unknown Product Type"
 
 
 # === Pre-Filter Categories with Embeddings ===
@@ -86,9 +95,11 @@ def get_categories_from_history(tokenizer, model, history_str, category_list, to
     with open(prompt_path, "r", encoding='utf-8') as f:
         user_prompt_template = f.read()
 
-    history_tokens = history_str.split()
+    history_tokens = history_str
+    
 
     # 少最後一筆
+    k = len(history_tokens)
     trimmed_history = history_tokens[:-1]
     print(f"Trimmed history ({len(trimmed_history)}): {trimmed_history}")
     print(f"Ground truth (held out): {history_tokens[-1]}")
@@ -128,15 +139,36 @@ def get_categories_from_history(tokenizer, model, history_str, category_list, to
             num_to_add = num_to_add    
         )
 
+        # # llama2
+        # prompt = f"<s>[INST] <<SYS>>\n{system_prompt}\n<</SYS>>\n\n{user_prompt} [/INST]"
+        # llama3
+        prompt = (
+            "<|start_header_id|>system<|end_header_id|>\n" +
+            system_prompt + "\n" +
+            "<|start_header_id|>user<|end_header_id|>\n" +
+            user_prompt + "\n" +
+            "<|start_header_id|>assistant<|end_header_id|>\n"
+        )
 
-        prompt = f"<s>[INST] <<SYS>>\n{system_prompt}\n<</SYS>>\n\n{user_prompt} [/INST]"
+        ## 傳統方法
+        # inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
+        # outputs = model.generate(**inputs, max_new_tokens=512)
+        # response = tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
 
-        inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
-        outputs = model.generate(**inputs, max_new_tokens=516)
-        response = tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
+        ## vllm
+        # 定義sampling參數
+        ## llama2
+        # sampling_params = SamplingParams(temperature=0.7, max_tokens = 2048, stop=["</s>"])
+        # llama3
+        sampling_params = SamplingParams(temperature=0.7, max_tokens=1024, stop=["<|end_of_text|>", "<|start_header_id|>"])  # 讓它只輸出 Assistant 回應
+
+        outputs = model.generate(prompt, sampling_params)
+        response = outputs[0].outputs[0].text.strip()
+
         print(f"response: {response}, 長度:{len(response)}")
 
-        response = response.split("[/INST]")[-1].strip()
+        # response = response.split("[/INST]")[-1].strip()
+        
         print(f"response: {response}, 長度:{len(response)}")
 
         categories = extract_python_list(response, fallback=["tops", "shoes", "accessories"])
@@ -148,4 +180,4 @@ def get_categories_from_history(tokenizer, model, history_str, category_list, to
     
     print(f"✅ Final list ({len(full_list)}): {full_list}")
     # full_list = history_tokens + categories
-    return full_list[:total_len]
+    return full_list[:total_len], k

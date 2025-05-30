@@ -1,8 +1,9 @@
 # config/enrich_sessions.yaml
 model:
   name: meta-llama/Llama-3.1-8b-Instruct
-  top_k: 20
-  total_len: 30
+  top_k: 20      # Number of top categories for similarity filtering
+  batch_size: 10 # Save every N users
+  total_len : 30 # Total session length after enrichment
 
 short_model:
   name: all-MiniLM-L6-v2
@@ -11,7 +12,7 @@ data:
   session_path: dataset/sessions_5_6_30_mapping.pkl
   category_csv: dataset/product_types.csv
   prompt_path: prompts/get_product_type_from_history_prompt.txt
-  article_to_product_mapping_path: dataset/articles_mapping.csv
+  mapping_path: dataset/articles_mapping.csv
 
 save:
   checkpoint_path: dataset/enriched_sessions_checkpoint.pkl
