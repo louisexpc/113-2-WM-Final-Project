@@ -11,7 +11,8 @@ def get_product_name_from_product_type_vllm(
     customers_df: pd.DataFrame, 
     llm=LLM, 
     tokenizer=PreTrainedTokenizer,
-    sampling_params=SamplingParams
+    sampling_params=SamplingParams,
+    product_examples_path: str = None
 ) -> dict[str, list[str]]:
     """為每個使用者的每個類別生成對應的商品名稱
     
@@ -64,7 +65,7 @@ def get_product_name_from_product_type_vllm(
             - Fashion magazine subscription: {user_info["fashion_news_frequency"]}
             - Club status: {user_info["club_member_status"]}
 
-            Example: {get_product_name_examples(product_type)}
+            Example: {get_product_name_examples(product_type,product_examples_path)}
 
             Output Format: [Product Name]
             Output Example: [Knit dress]

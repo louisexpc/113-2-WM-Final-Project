@@ -77,7 +77,7 @@ def get_current_season():
     return current_season
 
 
-def get_product_name_examples(product_type):
+def get_product_name_examples(product_type,product_examples_path):
     """
     從 CSV 檔案中讀取特定類別的商品名稱範例
     
@@ -88,9 +88,9 @@ def get_product_name_examples(product_type):
         str: 該類別的商品名稱範例，以逗號分隔
     """
     try:
-        csv_path = os.path.join(BASE_DIR, "product_name_examples.csv")
+        # csv_path = os.path.join(BASE_DIR, "product_name_examples.csv")
         # 讀取 CSV 檔案，指定分隔符為 ':'
-        product_examples = pd.read_csv(csv_path, 
+        product_examples = pd.read_csv(product_examples_path, 
                                       sep=':', 
                                       names=['product_type', 'examples'])
 

@@ -101,11 +101,11 @@ def run_generate_product_names_vllm(cfg, output_dir, logger, model, tokenizer):
         count += 1
         if count % cfg.data.batch_size == 0:
             logger.info(f"🚀 處理第 {count - cfg.data.batch_size + 1 + skipped} 到 {count + skipped} 筆")
-            result = get_product_name_from_product_type_vllm(batch, customers_df, model, tokenizer, sampling_params)
+            result = get_product_name_from_product_type_vllm(batch, customers_df, model, tokenizer, sampling_params,cfg.data.product_examples_path)
             save_result_incrementally(result, output_path, logger)
             batch = {}
 
     if batch:
         logger.info(f"🚀 處理最後 {len(batch)} 筆")
-        result = get_product_name_from_product_type_vllm(batch, customers_df, model, tokenizer, sampling_params)
+        result = get_product_name_from_product_type_vllm(batch, customers_df, model, tokenizer, sampling_params,cfg.data.product_examples_path)
         save_result_incrementally(result, output_path, logger)
