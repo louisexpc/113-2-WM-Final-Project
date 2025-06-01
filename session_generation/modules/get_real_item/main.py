@@ -119,9 +119,11 @@ def find_best_items(cfg, logger):
 
             best_item = df.iloc[top_idx]
             results.append(mapping[best_item['article_id']])
-            print("mapping prod_name:", best_item['prod_name'])
-            print("mapping detail_desc:", best_item['detail_desc'])
-            print("---")
+            if cfg.output.enable_detailed_log:
+                logger.info(f"[User {user}] input: {input_text}")
+                logger.info(f"[User {user}] → prod_name: {best_item['prod_name']}")
+                logger.info(f"[User {user}] → detail_desc: {best_item['detail_desc']}")
+
             
         
         user_results[user] = results
@@ -134,29 +136,29 @@ def find_best_items(cfg, logger):
 
     return user_results
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--input', type=str, required=True, help='input.pkl 路徑')
-    parser.add_argument('--output', type=str, default='results/output.pkl', help='output.pkl 路徑')
-    parser.add_argument('--articles', type=str, default='data/articles.csv', help='articles.csv 路徑')
-    parser.add_argument('--mapping', type=str, default='data/article_to_idx.pkl', help='article to ids mapping file 路徑')
-    parser.add_argument('--method', type=str, default='bm25', choices=['bm25', 'tfidf', 'dense', 'hybrid'], help='檢索方式')
-    parser.add_argument('--dense_model', type=str, default='all-MiniLM-L6-v2', help='dense retrieval 模型名稱')
-    parser.add_argument('--hybrid_alpha', type=float, default=0.5, help='hybrid 模式下 dense 與 sparse 分數權重 (0~1)')
-    parser.add_argument('--log', type=str, default='results/output.json', help='Optional: 紀錄 input+output 到的 txt 路徑')
+# if __name__ == "__main__":
+#     parser = argparse.ArgumentParser()
+#     parser.add_argument('--input', type=str, required=True, help='input.pkl 路徑')
+#     parser.add_argument('--output', type=str, default='results/output.pkl', help='output.pkl 路徑')
+#     parser.add_argument('--articles', type=str, default='data/articles.csv', help='articles.csv 路徑')
+#     parser.add_argument('--mapping', type=str, default='data/article_to_idx.pkl', help='article to ids mapping file 路徑')
+#     parser.add_argument('--method', type=str, default='bm25', choices=['bm25', 'tfidf', 'dense', 'hybrid'], help='檢索方式')
+#     parser.add_argument('--dense_model', type=str, default='all-MiniLM-L6-v2', help='dense retrieval 模型名稱')
+#     parser.add_argument('--hybrid_alpha', type=float, default=0.5, help='hybrid 模式下 dense 與 sparse 分數權重 (0~1)')
+#     parser.add_argument('--log', type=str, default='results/output.json', help='Optional: 紀錄 input+output 到的 txt 路徑')
 
-    args = parser.parse_args()
+#     args = parser.parse_args()
 
-    with open(args.input, 'rb') as f:
-        input_dict = pickle.load(f)
-    user_results = find_best_items(
-        input_dict, 
-        articles_path=args.articles, 
-        mapping_path=args.mapping,
-        method=args.method,
-        dense_model_name=args.dense_model,
-        hybrid_alpha=args.hybrid_alpha,
-        log_path=args.log
-    )
-    with open(args.output, 'wb') as f:
-        pickle.dump(user_results, f)
+#     with open(args.input, 'rb') as f:
+#         input_dict = pickle.load(f)
+#     user_results = find_best_items(
+#         input_dict, 
+#         articles_path=args.articles, 
+#         mapping_path=args.mapping,
+#         method=args.method,
+#         dense_model_name=args.dense_model,
+#         hybrid_alpha=args.hybrid_alpha,
+#         log_path=args.log
+#     )
+#     with open(args.output, 'wb') as f:
+#         pickle.dump(user_results, f)
