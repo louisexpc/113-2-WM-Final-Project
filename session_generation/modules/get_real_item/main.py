@@ -26,9 +26,10 @@ def find_best_items(cfg, logger):
     """Origin Parameter
      articles_path, mapping_path, method="bm25", dense_model_name="all-MiniLM-L6-v2", hybrid_alpha=0.5, log_path=None
     """
-    logger.info(f"🔧 使用檢索模式：{method}")
+   
 
     method = cfg.retrieval.method
+    logger.info(f"🔧 使用檢索模式：{method}")
     hybrid_alpha = cfg.retrieval.hybrid_alpha
     dense_model_name = cfg.retrieval.dense_model
     if torch.cuda.is_available() and cfg.device.cuda_visible_devices:
