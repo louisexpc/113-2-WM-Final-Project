@@ -11,7 +11,7 @@ from collections import Counter
 from .utils import *
 from .module import *
 
-def run_enrichment(cfg, output_dir, logger):
+def run_enrichment(cfg, logger):
     # === 設定 GPU ===
     os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
     os.environ["CUDA_VISIBLE_DEVICES"] = cfg.device.cuda_visible_devices
