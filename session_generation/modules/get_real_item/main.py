@@ -88,42 +88,57 @@ def find_best_items(cfg, logger):
         results = []
         for input_text in input_texts:
             print("input_text:", input_text)
-            # 1. Sparse retrieval
-            if method == "tfidf":
-                input_vec = sparse_vectorizer.transform([input_text])
-                scores = (input_vec * sparse_matrix.T).toarray()[0]
-                top_idx = scores.argmax()
-            elif method == "bm25":
-                input_tokenized = input_text.split()
-                scores = bm25.get_scores(input_tokenized)
-                top_idx = int(np.argmax(scores))
-            elif method == "dense":
-                input_emb = dense_model.encode([input_text], normalize_embeddings=True)
-                scores = np.dot(dense_embs, input_emb[0])
-                top_idx = int(np.argmax(scores))
-            elif method == "hybrid":
-                # Dense
-                input_emb = dense_model.encode([input_text], normalize_embeddings=True)
-                dense_scores = np.dot(dense_embs, input_emb[0])
-                # BM25
-                input_tokenized = input_text.split()
-                sparse_scores = bm25.get_scores(input_tokenized)
-                # score normalize
-                scaler = MinMaxScaler()
-                dense_scores_norm = scaler.fit_transform(dense_scores.reshape(-1, 1)).flatten()
-                sparse_scores_norm = scaler.fit_transform(np.array(sparse_scores).reshape(-1, 1)).flatten()
-                # Hybrid 融合
-                scores = hybrid_alpha * dense_scores_norm + (1 - hybrid_alpha) * sparse_scores_norm
-                top_idx = int(np.argmax(scores))
-            else:
-                raise ValueError("Unknown method.")
+            if isinstance(input_text, int):
+                results.append(input_text)
+            elif isinstance(input_text, str):
+                # 1. Sparse retrieval
+                if method == "tfidf":
+                    input_vec = sparse_vectorizer.transform([input_text])
+                    scores = (input_vec * sparse_matrix.T).toarray()[0]
+                    top_idx = scores.argmax()
+                elif method == "bm25":
+                    input_tokenized = input_text.split()
+                    scores = bm25.get_scores(input_tokenized)
+                    top_idx = int(np.argmax(scores))
+                elif method == "dense":
+                    input_emb = dense_model.encode([input_text], normalize_embeddings=True)
+                    scores = np.dot(dense_embs, input_emb[0])
+                    top_idx = int(np.argmax(scores))
+                elif method == "hybrid":
+                    # Dense
+                    input_emb = dense_model.encode([input_text], normalize_embeddings=True)
+                    dense_scores = np.dot(dense_embs, input_emb[0])
+                    # BM25
+                    input_tokenized = input_text.split()
+                    sparse_scores = bm25.get_scores(input_tokenized)
+                    # score normalize
+                    scaler = MinMaxScaler()
+                    dense_scores_norm = scaler.fit_transform(dense_scores.reshape(-1, 1)).flatten()
+                    sparse_scores_norm = scaler.fit_transform(np.array(sparse_scores).reshape(-1, 1)).flatten()
+                    # Hybrid 融合
+                    scores = hybrid_alpha * dense_scores_norm + (1 - hybrid_alpha) * sparse_scores_norm
+                    top_idx = int(np.argmax(scores))
+                else:
+                    raise ValueError("Unknown method.")
 
-            best_item = df.iloc[top_idx]
-            results.append(mapping[best_item['article_id']])
-            if cfg.output.enable_detailed_log:
-                logger.info(f"[User {user}] input: {input_text}")
-                logger.info(f"[User {user}] → prod_name: {best_item['prod_name']}")
-                logger.info(f"[User {user}] → detail_desc: {best_item['detail_desc']}")
+                best_item = df.iloc[top_idx]
+                key = int(best_item['article_id'])  # 明確型態
+                try:
+                    results.append(mapping[key])
+                except KeyError:
+                    raise KeyError(
+                        f"\n❌ 找不到 mapping key: {key}\n"
+                        f"型態: {type(best_item['article_id'])}\n"
+                        f"目前 mapping key 範例: {list(mapping.keys())[:5]}\n"
+                        f"該商品詳細資料: {best_item}\n"
+                    )
+                if cfg.output.enable_detailed_log:
+                    logger.info(f"[User {user}] input: {input_text}")
+                    logger.info(f"[User {user}] → prod_name: {best_item['prod_name']}")
+                    logger.info(f"[User {user}] → detail_desc: {best_item['detail_desc']}")
+            else:
+                logger.warning(f"⚠️ 無法處理的輸入類型：{type(input_text)}，跳過此輸入。")
+                continue
 
             
         
