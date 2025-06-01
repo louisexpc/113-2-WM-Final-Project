@@ -10,7 +10,7 @@ retrieval:
 
 data:
   input_path: data/input.pkl        # 輸入的使用者 query 字典（pickle 格式）
-  articles_csv: data/articles.csv   # 商品描述的資料（包含 prod_name 與 detail_desc）
+  articles_csv: data/articles_mapping.csv   # 商品描述的資料（包含 prod_name 與 detail_desc）
   mapping_path: data/article_to_idx.pkl  # article_id 對應至系統內部編號的 mapping
 
 output:

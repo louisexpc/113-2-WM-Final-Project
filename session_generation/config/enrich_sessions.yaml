@@ -3,9 +3,9 @@ model:
   name: meta-llama/Llama-3.1-8b-Instruct
   top_k: 20      # Number of top categories for similarity filtering
   total_len : 30 # Total session length after enrichment
-  gpu_memory_utilization: 0.8
-  max_model_len: 2048
-  max_num_seqs: 16
+  gpu_memory_utilization: 0.9
+  max_model_len: 128000
+  max_num_seqs: 64
 
 short_model:
   name: all-MiniLM-L6-v2
