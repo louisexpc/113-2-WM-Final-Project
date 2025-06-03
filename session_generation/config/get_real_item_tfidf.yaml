@@ -14,10 +14,10 @@ data:
   mapping_path: dataset/article_to_idx.pkl  # article_id 對應至系統內部編號的 mapping
 
 output:
-  result_path: dataset/generated_real_name_6_test.pkl
+  result_path: dataset/6/generated_real_name_6_tfidf.pkl
   enable_detailed_log: true              # 是否啟用每筆 mapping 詳細 log
   detailed_log_filename: retrieval_log.json  # log 檔案名稱（會自動放在 log_dir 下）
 
 
 device:
-  cuda_visible_devices: "5"  # 指定使用的 GPU id，若使用 dense/hybrid 模式建議配置 GPU
+  cuda_visible_devices: "7"  # 指定使用的 GPU id，若使用 dense/hybrid 模式建議配置 GPU
