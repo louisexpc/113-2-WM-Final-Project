@@ -21,6 +21,7 @@ def extract_user_sessions_from_raw(raw_data):
     
     simplified = {}
     for user_id, fields in raw_data.items():
+        user_id = int(user_id)
         if 'article_id' not in fields:
             raise ValueError(f"User {user_id} does not contain 'artivle_id' key." )
         simplified[user_id] = fields["article_id"]
