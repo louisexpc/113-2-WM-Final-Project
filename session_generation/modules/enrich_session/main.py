@@ -67,7 +67,8 @@ def run_enrichment(cfg, logger):
                 total_len=cfg.model.total_len, top_k=cfg.model.top_k, 
                 short_model=short_model, prompt_path=cfg.data.prompt_path, 
                 mapping_path= cfg.data.mapping_path)
-            
+            enriched_session[:k-1] = user_sessions[user_id][:-1]  # 保留原始 session 的前 k-1 個項目
+            enriched_session.append(user_sessions[user_id][-1])  # 最後一個項目是 enriched 的結果
             enriched[user_id] = (enriched_session, k)
         except Exception as e:
             logger.warning(f"❌ Failed for user {user_id}: {e}")
