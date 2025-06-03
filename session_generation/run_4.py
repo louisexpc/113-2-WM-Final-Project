@@ -44,7 +44,7 @@ def main(args):
 
     """LLM 2"""
     system_log.info("Starting Gen Product Name Module.")
-    llm2_cfg = load_config(os.path.join("config","gen_product_names.yaml"))
+    llm2_cfg = load_config(os.path.join("config","gen_product_names_4.yaml"))
     llm2_output_dir = get_experiment_output_dir(llm2_cfg.experiment)
     llm2_logger = setup_logger(name="gen", log_dir=llm2_output_dir)
 

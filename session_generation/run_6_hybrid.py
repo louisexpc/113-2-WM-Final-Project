@@ -18,7 +18,7 @@ def main(args):
 
     if args.mapping:
         system_log.info("Only Execute Real Item Mapping")
-        mapping_cfg = load_config(os.path.join("config","get_real_item_tfidf.yaml"))
+        mapping_cfg = load_config(os.path.join("config","get_real_item_hybrid.yaml"))
         real_item_output_dir = get_experiment_output_dir(mapping_cfg.experiment)
         real_item_logger = setup_logger(name="real_item", log_dir=real_item_output_dir)
 
