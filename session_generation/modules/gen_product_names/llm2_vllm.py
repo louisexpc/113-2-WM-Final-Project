@@ -39,7 +39,10 @@ def get_product_name_from_product_type_vllm(
         prompts = []
         user_map = []
         for i, product_type in enumerate(product_types):
-            if i < k-1:
+            print(f"Processing user {user_id}, product type {i}: {product_type}")
+            if isinstance(product_type, int):
+                result[user_id][i] = product_type
+                print(f"Skipping product type {product_type} for user {user_id} as it is an integer.")
                 continue
             
             # 為這個使用者的所有類別生成商品名稱
