@@ -9,12 +9,12 @@ retrieval:
   dense_model: all-MiniLM-L6-v2  # Dense 檢索使用的 SentenceTransformer 模型名稱（Hugging Face）
 
 data:
-  input_path: dataset/generated_product_name_6.pkl        # 輸入的使用者 query 字典（pickle 格式）
+  input_path: dataset/generated_product_name_4_15.pkl        # 輸入的使用者 query 字典（pickle 格式）
   articles_csv: dataset/articles.csv   # 商品描述的資料（包含 prod_name 與 detail_desc）
   mapping_path: dataset/article_to_idx.pkl  # article_id 對應至系統內部編號的 mapping
 
 output:
-  result_path: dataset/generated_real_name_6_bm25.pkl
+  result_path: dataset/4/generated_real_name_4_15_bm25.pkl
   enable_detailed_log: true              # 是否啟用每筆 mapping 詳細 log
   detailed_log_filename: retrieval_log.json  # log 檔案名稱（會自動放在 log_dir 下）
 
