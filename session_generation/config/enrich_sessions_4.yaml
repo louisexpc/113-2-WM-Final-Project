@@ -1,0 +1,35 @@
+# config/enrich_sessions.yaml
+model:
+  name: meta-llama/Llama-3.1-8b-Instruct
+  top_k: 20      # Number of top categories for similarity filtering
+  total_len : 15 # Total session length after enrichment
+  gpu_memory_utilization: 0.9
+  max_model_len: 4096
+  max_num_seqs: 64
+
+short_model:
+  name: all-MiniLM-L6-v2
+
+data:
+  session_path: dataset/sessions_5_4_30_mapping.pkl
+  category_csv: dataset/product_types.csv
+  prompt_path: prompts/get_product_type_from_history_prompt_v1.1.txt
+  mapping_path: dataset/articles_mapping.csv
+
+save:
+  checkpoint_path: dataset/enriched_sessions_4_checkpoint.pkl
+  final_output_path: dataset/enriched_sessions_4_final.pkl
+  batch_size: 5 # Save every N users
+  max_users: 10000
+
+device:
+  cuda_visible_devices: "6"
+
+experiment:
+  id: enrich_0526_llama_v1
+  output_base_dir: ./experiments/enrich_sessions/
+  create_timestamp_dir: true  # 是否在 output_dir 後自動加上 timestamp
+
+hf:
+  use_token: true
+  token_env_key: HF_TOKEN   # 對應 os.environ["HF_TOKEN"]
