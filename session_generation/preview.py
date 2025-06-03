@@ -6,7 +6,7 @@ preview.py
 """
 import pickle
 import pprint
-
+USER_ID = 15864
 def preview_pickle_file(file_path):
     """
     Load and display the contents of a pickle file.
@@ -22,7 +22,7 @@ def preview_pickle_file(file_path):
     # Print basic information about the data
     print(f"Data type: {type(data)}")
     print(f"Total items: {len(data)}")
-    print(data[8265]) # Display first item if it's a dictionary
+    print(data[USER_ID]) # Display first item if it's a dictionary
         
         
         
@@ -43,7 +43,7 @@ def preview_ori_pickle_file(file_path):
         print(f"Data type: {type(data)}")
         
         # Handle different data types appropriately
-        print(data[8265]["article_id"])
+        print(data[USER_ID]["article_id"])
         
         # Print the actual data
         print("\nData content:")
@@ -53,7 +53,7 @@ def preview_ori_pickle_file(file_path):
         print(f"Error reading pickle file: {e}")
 
 if __name__ == "__main__":
-    file_path = "dataset/generated_real_name_6_test.pkl"  # Replace with your file path
+    file_path = "dataset/generated_product_name_4_15.pkl"  # Replace with your file path
     preview_pickle_file(file_path)
-    ori_file_path = "dataset/short_sessions_5_6_30_mapping.pkl"  # Replace with your file path
+    ori_file_path = "dataset/short_sessions_5_4_30_mapping.pkl"  # Replace with your file path
     preview_ori_pickle_file(ori_file_path)
