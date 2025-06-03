@@ -9,10 +9,10 @@ import matplotlib
 matplotlib.use('Agg')  # 設定後端為 Agg
 import matplotlib.pyplot as plt
 
-METHOD = 'test'  # 可以是 'tfidf', 'bm25', 'dense', 'hybrid'
+METHOD = 'bm25'  # 可以是 'tfidf', 'bm25', 'dense', 'hybrid'
 LENGTH = "6"
 # 讀取 pickle 檔案
-with open(f'dataset/generated_real_name_{LENGTH}_{METHOD}.pkl', 'rb') as f:
+with open(f'dataset/6/generated_real_name_{LENGTH}_{METHOD}.pkl', 'rb') as f:
     data = pickle.load(f)
 
 # 檢查資料型態和筆數
@@ -31,9 +31,13 @@ duplicate_counts = []  # 儲存每個 list 中重複數字的總數
 max_repeat_counts = []  # 儲存每個 list 中最大重複次數
 none_counts = []  # 儲存每個 list 中 None 的數量
 lists_with_none = 0  # 有 None 值的 list 數量
+session_lengths = []  # 儲存每個 session 的長度
 
 for key, value_list in data.items():
     if isinstance(value_list, list):
+        # 檢查 session 長度
+        session_length = len(value_list)
+        session_lengths.append(session_length)
         # 檢查 None 值
         none_count = value_list.count(None)
         none_counts.append(none_count)
@@ -52,6 +56,30 @@ for key, value_list in data.items():
         max_repeat = max(counter.values()) if counter.values() else 0
         if max_repeat > 1:
             max_repeat_counts.append(max_repeat)
+
+if session_lengths:
+    unique_lengths = set(session_lengths)
+    all_same_length = len(unique_lengths) == 1
+    
+    print(f"\nSession 長度統計:")
+    print(f"所有 session 長度是否都相同: {'是' if all_same_length else '否'}")
+    
+    if all_same_length:
+        print(f"所有 session 長度都為: {session_lengths[0]}")
+    else:
+        min_length = min(session_lengths)
+        max_length = max(session_lengths)
+        avg_length = sum(session_lengths) / len(session_lengths)
+        print(f"最短 session 長度: {min_length}")
+        print(f"最長 session 長度: {max_length}")
+        print(f"平均 session 長度: {avg_length:.2f}")
+        
+        # 顯示長度分布
+        length_counter = Counter(session_lengths)
+        print(f"長度分布:")
+        for length, count in sorted(length_counter.items()):
+            print(f"  長度 {length}: {count} 個 sessions")
+
 
 # 計算統計資料
 if duplicate_counts:
