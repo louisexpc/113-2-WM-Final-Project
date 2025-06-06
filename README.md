@@ -1,7 +1,7 @@
 # 113-2-WM-Final-Project
 
 # Dataset - H&M Kaggel
-- [link of H&M Kaggle dataset](https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data
+- [link of H&M Kaggle dataset](https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data)
 
 # Generated_imgs
 - [link](https://drive.google.com/drive/folders/1f3mHljg80oDsPfm3zyTsnXIiZzbEsuY3?usp=drive_link)

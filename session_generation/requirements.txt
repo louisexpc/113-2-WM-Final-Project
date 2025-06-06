@@ -1,9 +1,0 @@
-torch
-transformers
-sentence-transformers
-tqdm
-pandas
-pyyaml
-python-dotenv
-huggingface_hub
-vllm

@@ -21,6 +21,7 @@ def extract_user_sessions_from_raw(raw_data):
     
     simplified = {}
     for user_id, fields in raw_data.items():
+        user_id = int(user_id)
         if 'article_id' not in fields:
             raise ValueError(f"User {user_id} does not contain 'artivle_id' key." )
         simplified[user_id] = fields["article_id"]
@@ -169,15 +170,15 @@ def get_categories_from_history(tokenizer, model, history_str, category_list, to
 
         # response = response.split("[/INST]")[-1].strip()
         
-        print(f"response: {response}, 長度:{len(response)}")
+        # print(f"response: {response}, 長度:{len(response)}")
 
         categories = extract_python_list(response, fallback=["tops", "shoes", "accessories"])
         print("✔️ Extracted:", categories)
 
         full_list += categories
-
+        # full_list.append(history_tokens[-1])  # 確保最後一筆也包含在內
         attempts += 1
     
     print(f"✅ Final list ({len(full_list)}): {full_list}")
     # full_list = history_tokens + categories
-    return full_list[:total_len], k
+    return full_list[:total_len+1], k

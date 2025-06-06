@@ -1,5 +1,0 @@
-product_types.csv:1r_Rjz41otic6kCEdmA4xa30b3hwEsN9D 
-sessions_5_6_30_mapping.pkl:1mRRnV3XOZr7PpdpmZC3I3YXL8JA47xBi 
-articles_mapping.csv:11gU83Y_AencftfoyoVA5TfPqUMvXvbsC
-customers_mapping.csv:1s12PfU7STIzqcltITrsnc2H-DB8HSJGP
-product_name_examples.csv:1OXlBWbjH8CAfOA0hBPe5F9ueP5_2lxFp

@@ -11,7 +11,7 @@ from collections import Counter
 from .utils import *
 from .module import *
 
-def run_enrichment(cfg, output_dir, logger):
+def run_enrichment(cfg, logger):
     # === 設定 GPU ===
     os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
     os.environ["CUDA_VISIBLE_DEVICES"] = cfg.device.cuda_visible_devices
@@ -45,7 +45,7 @@ def run_enrichment(cfg, output_dir, logger):
     # === 載入資料 ===
     logger.info("🔍 Loading user session data...")
     raw_data = load_pickle(cfg.data.session_path)
-    user_sessions = extract_user_sessions_from_raw(raw_data)
+    user_sessions = extract_user_sessions_from_raw(raw_data) #dict[int:List]
 
     logger.info("📂 Loading categories...")
     
@@ -60,17 +60,24 @@ def run_enrichment(cfg, output_dir, logger):
         if i >= cfg.save.max_users:
             logger.info(f"⏹️ Reached max_users: {cfg.save.max_users}")
             break
-        try:
-            user_session = {user_id: user_sessions[user_id]}
-            enriched_session, k = enrich_user_sessions( 
-                tokenizer, model, user_session, category_list, 
-                total_len=cfg.model.total_len, top_k=cfg.model.top_k, 
-                short_model=short_model, prompt_path=cfg.data.prompt_path, 
-                mapping_path= cfg.data.mapping_path)
-            
-            enriched[user_id] = (enriched_session, k)
-        except Exception as e:
-            logger.warning(f"❌ Failed for user {user_id}: {e}")
+        """Update: Max Length Limitation"""
+        if len(user_sessions[user_id]) > cfg.model.total_len:
+            enriched[user_id] = ([int(article_id) for article_id in user_sessions[user_id]], -1) #符合格式, K 用 -1 填補
+        else:
+            try:
+                user_session = {user_id: [int(article_id) for article_id in user_sessions[user_id]]} #確保dtype 正確
+                enriched_session, k = enrich_user_sessions( 
+                    tokenizer, model, user_session, category_list, 
+                    total_len=cfg.model.total_len, top_k=cfg.model.top_k, 
+                    short_model=short_model, prompt_path=cfg.data.prompt_path, 
+                    mapping_path= cfg.data.mapping_path)
+                
+                enriched_session[:k-1] = user_sessions[user_id][:-1]  # 保留原始 session 的前 k-1 個項目
+                enriched_session.append(user_sessions[user_id][-1])  # 最後一個項目是 enriched 的結果
+                enriched[user_id] = (enriched_session, k)
+
+            except Exception as e:
+                logger.warning(f"❌ Failed for user {user_id}: {e}")
 
         if (i + 1) % cfg.save.batch_size == 0:
             checkpoint_path = os.path.join(cfg.save.checkpoint_path)
