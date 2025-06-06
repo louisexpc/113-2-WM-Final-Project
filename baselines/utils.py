@@ -24,7 +24,7 @@ class Evaluate:
     def set_eva_function(self, predice_function):
         self.predice_function = predice_function
 
-    def run(self, batch_size=256):
+    def run(self, batch_size=256, model='bpr', epochs=1):
         if not hasattr(self, 'predice_function'):
             raise RuntimeError("Prediction function not set. Call set_eva_function() first.")
 
@@ -69,7 +69,10 @@ class Evaluate:
             # print("input_tensor", input_tensor.shape)
             # print("test_tensor", test_tensor.shape)
             
-            scores, _ = self.predice_function(user_tensor, input_tensor, test_tensor, test_tensor)
+            if model == 'bpr':
+                scores, _ = self.predice_function(user_tensor, input_tensor, test_tensor, test_tensor)
+            elif model == 'ncf':
+                scores = self.predice_function(user_tensor, test_tensor)
             scores_np = scores.detach().cpu().numpy()
 
             # Slice scores per user
@@ -101,11 +104,13 @@ class Evaluate:
                 self.results[metric][k] /= self.user_num
 
         if self.output_csv_path:
+            output_csv_path = self.output_csv_path.replace('.csv', f'_{model}_eval_ep_{epochs}.csv')
             df = pd.DataFrame(user_records)
-            df.to_csv(self.output_csv_path, index=False)
-            print(f"📄 Saved batch eval result to {self.output_csv_path}")
-
-        return self.results
+            # df.to_csv(output_csv_path, index=False)
+            # print(f"📄 Saved batch eval result to {output_csv_path}")
+        
+            return self.results, df
+        return self.results, None
 
 
     def print_result(self):

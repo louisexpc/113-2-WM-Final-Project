@@ -10,6 +10,7 @@ import os
 
 from bpr import BPR
 from utils import ARGS, make_training_data, Evaluate
+import argparse
 
 # ---------------------------------------------
 # Dataset Class
@@ -65,11 +66,11 @@ def get_predict_function(model, device):
 
 # ---------------------------------------------
 # Main Function
-def main():
+def main(output_csv_path="result/bpr_result_aug_56_hybrid.csv"):
     # ---------- Config ----------
     dataset_name = "filtered-h-and-m"
     batch_size = 4096
-    epochs = 1
+    epochs = 50
     lr = 0.001
     latent_dim = 32
     window_size = 1
@@ -99,7 +100,7 @@ def main():
     optimizer = optim.Adam(model.parameters(), lr=lr)
 
     # ---------- Evaluator ----------
-    evaluator = Evaluate(testing_data, neg_testing, isShow=False, device=device, output_csv_path="result/best_result.csv")
+    evaluator = Evaluate(testing_data, neg_testing, isShow=False, device=device, output_csv_path="result/bpr_result_aug_56_hybrid.csv")
     evaluator.set_eva_function(get_predict_function(model, device))
 
     # ---------- Train ----------
@@ -112,7 +113,7 @@ def main():
         print(f"[Epoch {epoch}] Loss: {loss:.4f}")
 
         # Evaluate
-        results = evaluator.run(batch_size=512)
+        results, df = evaluator.run(batch_size=512, epochs=epoch)
         evaluator.print_result()
 
         hr10 = results["num_hit"][10]  # ← HR@10
@@ -121,6 +122,8 @@ def main():
             best_hr10 = hr10
             best_epoch = epoch
             torch.save(model.state_dict(), model_save_path)
+            df.to_csv(output_csv_path, index=False)
+            print(f"📄 Saved batch eval result to {output_csv_path}")
             print(f"✅ [Epoch {epoch}] New best HR@10: {best_hr10:.4f}, model saved to {model_save_path}")
         else:
             print(f"[Epoch {epoch}] HR@10 = {hr10:.4f}, best = {best_hr10:.4f} (epoch {best_epoch})")
@@ -130,4 +133,9 @@ def main():
     print(f"Model saved to checkpoints/bpr_last_{dataset_name}.pt")
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--output_csv_path', type=str, default="result/bpr_result.csv", help='Path to save best result csv')
+    args_cmd = parser.parse_args()
+    output_csv_path = args_cmd.output_csv_path
+    
+    main(output_csv_path=output_csv_path)

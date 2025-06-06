@@ -6,10 +6,10 @@ from collections import Counter
 
 # --- 載入資料 ---
 # 1. 命中資訊
-df = pd.read_csv("./result/best_result.csv")
+df = pd.read_csv("./result/ncf_result_origin_54.csv")
 
 # 2. 使用者行為紀錄
-with open("./dataset/filtered-h-and-m/processed_data/user_session.pkl", "rb") as f:
+with open("./dataset/filtered-h-and-m/processed_data/origin_54_mapping/user_session.pkl", "rb") as f:
     user_session = pkl.load(f)
 
 # --- 分類使用者 ---
@@ -49,7 +49,7 @@ output = {
     "avg_miss": avg_miss,
 }
 
-with open("./result/hit_miss_user_analysis.pkl", "wb") as f:
+with open("./result/origin_54_mapping_ncf/hit_miss_user_analysis.pkl", "wb") as f:
     pkl.dump(output, f)
 
 print("\n📦 已儲存命中與未命中使用者清單與統計至 hit_miss_user_analysis.pkl")
@@ -71,10 +71,10 @@ import seaborn as sns
 # plt.legend()
 # plt.tight_layout()
 
-# os.makedirs("./result", exist_ok=True)
-# plt.savefig("./result/session_length_distribution.png")
+# os.makedirs("./result/origin_54_mapping_ncf", exist_ok=True)
+# plt.savefig("./result/origin_54_mapping_ncf/session_length_distribution.png")
 # plt.close()
-# print("✅ 已儲存圖表至 ./result/session_length_distribution.png")
+# print("✅ 已儲存圖表至 ./result/origin_54_mapping_ncf/session_length_distribution.png")
 
 # # --- 畫圖 (focus: 0~14) ---
 # sns.set(style="whitegrid")
@@ -89,11 +89,11 @@ import seaborn as sns
 # plt.legend()
 # plt.tight_layout()
 
-# os.makedirs("./result", exist_ok=True)
-# plt.savefig("./result/session_length_distribution_zoomed.png")
+# os.makedirs("./result/origin_54_mapping_ncf", exist_ok=True)
+# plt.savefig("./result/origin_54_mapping_ncf/session_length_distribution_zoomed.png")
 # plt.close()
 
-# print("✅ 已儲存圖表至 ./result/session_length_distribution_zoomed.png")
+# print("✅ 已儲存圖表至 ./result/origin_54_mapping_ncf/session_length_distribution_zoomed.png")
 
 
 # --- 畫直方圖 ---
@@ -110,11 +110,11 @@ plt.legend()
 plt.tight_layout()
 
 # --- 儲存圖檔 ---
-os.makedirs("./result", exist_ok=True)
-plt.savefig("./result/session_length_histogram.png")
+os.makedirs("./result/origin_54_mapping_ncf", exist_ok=True)
+plt.savefig("./result/origin_54_mapping_ncf/session_length_histogram.png")
 plt.close()
 
-print("✅ 已儲存直方圖至 ./result/session_length_histogram.png")
+print("✅ 已儲存直方圖至 ./result/origin_54_mapping_ncf/session_length_histogram.png")
 
 
 
@@ -154,9 +154,9 @@ plt.yscale('log')  # 若部分比例很大，可以用對數軸
 plt.grid(True, which='both', axis='y')
 plt.legend()
 plt.tight_layout()
-plt.savefig("./result/session_length_hit_to_miss_ratio.png")
+plt.savefig("./result/origin_54_mapping_ncf/session_length_hit_to_miss_ratio.png")
 plt.close()
-print("✅ 已儲存 hit:miss 比例圖至 ./result/session_length_hit_to_miss_ratio.png")
+print("✅ 已儲存 hit:miss 比例圖至 ./result/origin_54_mapping_ncf/session_length_hit_to_miss_ratio.png")
 
 
 
@@ -168,9 +168,9 @@ plt.xlabel("Session Length", fontsize=12)
 plt.ylabel("User Count", fontsize=12)
 plt.legend()
 plt.tight_layout()
-plt.savefig("./result/session_length_hit_miss_usercount.png")
+plt.savefig("./result/origin_54_mapping_ncf/session_length_hit_miss_usercount.png")
 plt.close()
-print("✅ 已儲存 hit/miss 用戶數柱狀圖至 ./result/session_length_hit_miss_usercount.png")
+print("✅ 已儲存 hit/miss 用戶數柱狀圖至 ./result/origin_54_mapping_ncf/session_length_hit_miss_usercount.png")
 
 #---
 import numpy as np
@@ -226,10 +226,10 @@ plt.yscale('log')
 plt.grid(True, which='both', axis='y')
 plt.legend(fontsize=14)
 plt.tight_layout()
-plt.savefig("./result/session_length_hit_to_miss_ratio_combined.png")
+plt.savefig("./result/origin_54_mapping_ncf/session_length_hit_to_miss_ratio_combined.png")
 plt.close()
 
-print("✅ 已儲存合併圖於 ./result/session_length_hit_to_miss_ratio_combined.png")
+print("✅ 已儲存合併圖於 ./result/origin_54_mapping_ncf/session_length_hit_to_miss_ratio_combined.png")
 
 ### 可選：加碼存表格
 import pandas as pd
@@ -239,12 +239,51 @@ df_ratio = pd.DataFrame({
     'user_count': filtered_user_count,
     'hit_to_miss_ratio': filtered_ratios
 })
-df_ratio.to_csv("./result/session_length_hit_to_miss_ratio_filtered.csv", index=False)
+df_ratio.to_csv("./result/origin_54_mapping_ncf/session_length_hit_to_miss_ratio_filtered.csv", index=False)
 
 df_binned = pd.DataFrame({
     'bin_center': bin_centers,
     'binned_user_count': binned_user,
     'binned_hit_to_miss_ratio': binned_ratio
 })
-df_binned.to_csv("./result/session_length_hit_to_miss_ratio_binned.csv", index=False)
-print("✅ 已儲存細分與分 bin 統計表於 ./result/")
+df_binned.to_csv("./result/origin_54_mapping_ncf/session_length_hit_to_miss_ratio_binned.csv", index=False)
+print("✅ 已儲存細分與分 bin 統計表於 ./result/origin_54_mapping_ncf/")
+
+# ----# --- 依 session 長度篩選 user id ---
+short_users_lt5 = [u for u, sess in user_session.items() if len(sess) < 5]
+short_users_lt10 = [u for u, sess in user_session.items() if len(sess) < 10]
+
+# --- 分類 session length < 5 和 < 10 為 hit/miss ---
+hit_users_lt5 = set(short_users_lt5) & hit_users
+miss_users_lt5 = set(short_users_lt5) & miss_users
+
+hit_users_lt10 = set(short_users_lt10) & hit_users
+miss_users_lt10 = set(short_users_lt10) & miss_users
+
+# --- 計算 hit:miss ratio ---
+ratio_lt5 = len(hit_users_lt5) / len(miss_users_lt5) if len(miss_users_lt5) > 0 else float('inf')
+ratio_lt10 = len(hit_users_lt10) / len(miss_users_lt10) if len(miss_users_lt10) > 0 else float('inf')
+
+print(f"session length < 5: hit={len(hit_users_lt5)}, miss={len(miss_users_lt5)}, ratio={ratio_lt5:.4f}, 命中率={len(hit_users_lt5) / len(short_users_lt5):.4f}")
+print(f"session length < 10: hit={len(hit_users_lt10)}, miss={len(miss_users_lt10)}, ratio={ratio_lt10:.4f}, 命中率={len(hit_users_lt10) / len(short_users_lt10):.4f}")
+
+# --- 儲存結果 ---
+output_short_users = {
+    'lt5': {
+        'user_ids': short_users_lt5,
+        'hit_users': list(hit_users_lt5),
+        'miss_users': list(miss_users_lt5),
+        'hit_to_miss_ratio': ratio_lt5
+    },
+    'lt10': {
+        'user_ids': short_users_lt10,
+        'hit_users': list(hit_users_lt10),
+        'miss_users': list(miss_users_lt10),
+        'hit_to_miss_ratio': ratio_lt10
+    }
+}
+
+os.makedirs("./result/origin_54_mapping_ncf", exist_ok=True)
+with open("./result/origin_54_mapping_ncf/short_session_user_analysis.pkl", "wb") as f:
+    pkl.dump(output_short_users, f)
+print("✅ 已儲存短 session user 統計於 short_session_user_analysis.pkl")
