@@ -3,7 +3,7 @@
 # Check for gdown installation
 if ! command -v gdown &>/dev/null; then
     echo "gdown not found. Installing..."
-    pip install gdown || {
+    pip install --upgrade gdown || {
         echo "Installation failed. Aborting."
         exit 1
     }
@@ -24,7 +24,7 @@ while IFS= read -r line || [ -n "$line" ]; do
     mkdir -p "$dir_path"
 
     echo "Downloading $file_id -> $file_path"
-    gdown --id "$file_id" -O "$file_path"
+    gdown --fuzzy "https://drive.google.com/uc?id=$file_id" -O "$file_path"
 done <files.txt
 
 echo "Download completed."
