@@ -14,7 +14,7 @@ while IFS= read -r line || [ -n "$line" ]; do
     # Skip empty lines or malformed ones
     [[ -z "$line" || "$line" != *:* ]] && continue
 
-    # Split path and file ID
+    # Split path and file ID/link
     IFS=':' read -r file_path file_id <<<"$line"
 
     # Extract directory from file path
@@ -24,7 +24,7 @@ while IFS= read -r line || [ -n "$line" ]; do
     mkdir -p "$dir_path"
 
     echo "Downloading $file_id -> $file_path"
-    gdown --fuzzy "https://drive.google.com/uc?id=$file_id" -O "$file_path"
+    gdown --fuzzy "$file_id" -O "$file_path"
 done <files.txt
 
 echo "Download completed."
