@@ -6,3 +6,4 @@ __pycache__/
 # Allen's model files cache
 llama3_hf_cache/  
 *.log
+!baselines/logs/*.log

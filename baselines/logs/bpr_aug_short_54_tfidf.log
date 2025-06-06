@@ -1,0 +1,432 @@
+Dataset: filtered-h-and-m, Users: 1371716, Items: 105491
+Generating training data...
+[Epoch 1] Loss: 0.4686
+num_hit:	@1	@3	@5	@10
+		0.0489	0.1461	0.2236	0.3415	
+MAP_score:	@1	@3	@5	@10
+		0.0489	0.0901	0.1077	0.1231	
+NDCG_score:	@1	@3	@5	@10
+		0.0489	0.1044	0.1362	0.1740	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 1] New best HR@10: 0.3415, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 2] Loss: 0.1246
+num_hit:	@1	@3	@5	@10
+		0.0504	0.1501	0.2217	0.3437	
+MAP_score:	@1	@3	@5	@10
+		0.0504	0.0924	0.1087	0.1247	
+NDCG_score:	@1	@3	@5	@10
+		0.0504	0.1071	0.1366	0.1757	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 2] New best HR@10: 0.3437, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 3] Loss: 0.0689
+num_hit:	@1	@3	@5	@10
+		0.0490	0.1500	0.2190	0.3418	
+MAP_score:	@1	@3	@5	@10
+		0.0490	0.0920	0.1076	0.1239	
+NDCG_score:	@1	@3	@5	@10
+		0.0490	0.1068	0.1351	0.1747	
+[Epoch 3] HR@10 = 0.3418, best = 0.3437 (epoch 2)
+[Epoch 4] Loss: 0.0535
+num_hit:	@1	@3	@5	@10
+		0.0487	0.1453	0.2178	0.3436	
+MAP_score:	@1	@3	@5	@10
+		0.0487	0.0900	0.1063	0.1230	
+NDCG_score:	@1	@3	@5	@10
+		0.0487	0.1041	0.1338	0.1743	
+[Epoch 4] HR@10 = 0.3436, best = 0.3437 (epoch 2)
+[Epoch 5] Loss: 0.0463
+num_hit:	@1	@3	@5	@10
+		0.0524	0.1496	0.2214	0.3461	
+MAP_score:	@1	@3	@5	@10
+		0.0524	0.0937	0.1099	0.1263	
+NDCG_score:	@1	@3	@5	@10
+		0.0524	0.1080	0.1374	0.1775	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 5] New best HR@10: 0.3461, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 6] Loss: 0.0421
+num_hit:	@1	@3	@5	@10
+		0.0511	0.1502	0.2201	0.3497	
+MAP_score:	@1	@3	@5	@10
+		0.0511	0.0933	0.1090	0.1260	
+NDCG_score:	@1	@3	@5	@10
+		0.0511	0.1078	0.1364	0.1780	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 6] New best HR@10: 0.3497, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 7] Loss: 0.0386
+num_hit:	@1	@3	@5	@10
+		0.0508	0.1474	0.2217	0.3473	
+MAP_score:	@1	@3	@5	@10
+		0.0508	0.0920	0.1087	0.1253	
+NDCG_score:	@1	@3	@5	@10
+		0.0508	0.1062	0.1365	0.1770	
+[Epoch 7] HR@10 = 0.3473, best = 0.3497 (epoch 6)
+[Epoch 8] Loss: 0.0360
+num_hit:	@1	@3	@5	@10
+		0.0521	0.1524	0.2231	0.3554	
+MAP_score:	@1	@3	@5	@10
+		0.0521	0.0942	0.1102	0.1276	
+NDCG_score:	@1	@3	@5	@10
+		0.0521	0.1091	0.1380	0.1806	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 8] New best HR@10: 0.3554, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 9] Loss: 0.0336
+num_hit:	@1	@3	@5	@10
+		0.0548	0.1516	0.2270	0.3555	
+MAP_score:	@1	@3	@5	@10
+		0.0548	0.0958	0.1128	0.1298	
+NDCG_score:	@1	@3	@5	@10
+		0.0548	0.1100	0.1409	0.1823	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 9] New best HR@10: 0.3555, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 10] Loss: 0.0317
+num_hit:	@1	@3	@5	@10
+		0.0572	0.1568	0.2309	0.3590	
+MAP_score:	@1	@3	@5	@10
+		0.0572	0.0995	0.1162	0.1330	
+NDCG_score:	@1	@3	@5	@10
+		0.0572	0.1141	0.1445	0.1856	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 10] New best HR@10: 0.3590, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 11] Loss: 0.0295
+num_hit:	@1	@3	@5	@10
+		0.0577	0.1590	0.2331	0.3632	
+MAP_score:	@1	@3	@5	@10
+		0.0577	0.1009	0.1177	0.1348	
+NDCG_score:	@1	@3	@5	@10
+		0.0577	0.1157	0.1461	0.1880	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 11] New best HR@10: 0.3632, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 12] Loss: 0.0278
+num_hit:	@1	@3	@5	@10
+		0.0593	0.1611	0.2352	0.3675	
+MAP_score:	@1	@3	@5	@10
+		0.0593	0.1020	0.1188	0.1364	
+NDCG_score:	@1	@3	@5	@10
+		0.0593	0.1171	0.1475	0.1902	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 12] New best HR@10: 0.3675, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 13] Loss: 0.0259
+num_hit:	@1	@3	@5	@10
+		0.0617	0.1649	0.2399	0.3701	
+MAP_score:	@1	@3	@5	@10
+		0.0617	0.1053	0.1223	0.1396	
+NDCG_score:	@1	@3	@5	@10
+		0.0617	0.1205	0.1513	0.1933	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 13] New best HR@10: 0.3701, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 14] Loss: 0.0241
+num_hit:	@1	@3	@5	@10
+		0.0650	0.1676	0.2432	0.3752	
+MAP_score:	@1	@3	@5	@10
+		0.0650	0.1083	0.1255	0.1430	
+NDCG_score:	@1	@3	@5	@10
+		0.0650	0.1234	0.1545	0.1971	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 14] New best HR@10: 0.3752, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 15] Loss: 0.0225
+num_hit:	@1	@3	@5	@10
+		0.0649	0.1701	0.2465	0.3778	
+MAP_score:	@1	@3	@5	@10
+		0.0649	0.1095	0.1267	0.1442	
+NDCG_score:	@1	@3	@5	@10
+		0.0649	0.1250	0.1563	0.1987	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 15] New best HR@10: 0.3778, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 16] Loss: 0.0211
+num_hit:	@1	@3	@5	@10
+		0.0680	0.1758	0.2519	0.3827	
+MAP_score:	@1	@3	@5	@10
+		0.0680	0.1136	0.1310	0.1484	
+NDCG_score:	@1	@3	@5	@10
+		0.0680	0.1295	0.1608	0.2031	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 16] New best HR@10: 0.3827, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 17] Loss: 0.0196
+num_hit:	@1	@3	@5	@10
+		0.0680	0.1798	0.2569	0.3853	
+MAP_score:	@1	@3	@5	@10
+		0.0680	0.1155	0.1329	0.1499	
+NDCG_score:	@1	@3	@5	@10
+		0.0680	0.1319	0.1635	0.2049	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 17] New best HR@10: 0.3853, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 18] Loss: 0.0184
+num_hit:	@1	@3	@5	@10
+		0.0709	0.1834	0.2651	0.3904	
+MAP_score:	@1	@3	@5	@10
+		0.0709	0.1188	0.1372	0.1539	
+NDCG_score:	@1	@3	@5	@10
+		0.0709	0.1353	0.1688	0.2092	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 18] New best HR@10: 0.3904, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 19] Loss: 0.0168
+num_hit:	@1	@3	@5	@10
+		0.0740	0.1897	0.2698	0.3939	
+MAP_score:	@1	@3	@5	@10
+		0.0740	0.1232	0.1415	0.1578	
+NDCG_score:	@1	@3	@5	@10
+		0.0740	0.1402	0.1732	0.2131	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 19] New best HR@10: 0.3939, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 20] Loss: 0.0157
+num_hit:	@1	@3	@5	@10
+		0.0783	0.1924	0.2687	0.4002	
+MAP_score:	@1	@3	@5	@10
+		0.0783	0.1270	0.1444	0.1618	
+NDCG_score:	@1	@3	@5	@10
+		0.0783	0.1437	0.1751	0.2175	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 20] New best HR@10: 0.4002, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 21] Loss: 0.0145
+num_hit:	@1	@3	@5	@10
+		0.0798	0.1969	0.2768	0.4081	
+MAP_score:	@1	@3	@5	@10
+		0.0798	0.1297	0.1479	0.1653	
+NDCG_score:	@1	@3	@5	@10
+		0.0798	0.1469	0.1797	0.2220	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 21] New best HR@10: 0.4081, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 22] Loss: 0.0134
+num_hit:	@1	@3	@5	@10
+		0.0811	0.1981	0.2813	0.4077	
+MAP_score:	@1	@3	@5	@10
+		0.0811	0.1308	0.1497	0.1665	
+NDCG_score:	@1	@3	@5	@10
+		0.0811	0.1480	0.1821	0.2229	
+[Epoch 22] HR@10 = 0.4077, best = 0.4081 (epoch 21)
+[Epoch 23] Loss: 0.0123
+num_hit:	@1	@3	@5	@10
+		0.0841	0.2078	0.2859	0.4112	
+MAP_score:	@1	@3	@5	@10
+		0.0841	0.1368	0.1545	0.1712	
+NDCG_score:	@1	@3	@5	@10
+		0.0841	0.1550	0.1870	0.2274	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 23] New best HR@10: 0.4112, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 24] Loss: 0.0114
+num_hit:	@1	@3	@5	@10
+		0.0872	0.2102	0.2919	0.4196	
+MAP_score:	@1	@3	@5	@10
+		0.0872	0.1395	0.1581	0.1750	
+NDCG_score:	@1	@3	@5	@10
+		0.0872	0.1576	0.1911	0.2323	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 24] New best HR@10: 0.4196, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 25] Loss: 0.0104
+num_hit:	@1	@3	@5	@10
+		0.0894	0.2136	0.2920	0.4184	
+MAP_score:	@1	@3	@5	@10
+		0.0894	0.1424	0.1602	0.1771	
+NDCG_score:	@1	@3	@5	@10
+		0.0894	0.1606	0.1928	0.2337	
+[Epoch 25] HR@10 = 0.4184, best = 0.4196 (epoch 24)
+[Epoch 26] Loss: 0.0098
+num_hit:	@1	@3	@5	@10
+		0.0965	0.2165	0.2952	0.4179	
+MAP_score:	@1	@3	@5	@10
+		0.0965	0.1480	0.1660	0.1824	
+NDCG_score:	@1	@3	@5	@10
+		0.0965	0.1656	0.1980	0.2377	
+[Epoch 26] HR@10 = 0.4179, best = 0.4196 (epoch 24)
+[Epoch 27] Loss: 0.0090
+num_hit:	@1	@3	@5	@10
+		0.0997	0.2230	0.3012	0.4212	
+MAP_score:	@1	@3	@5	@10
+		0.0997	0.1523	0.1701	0.1861	
+NDCG_score:	@1	@3	@5	@10
+		0.0997	0.1704	0.2026	0.2413	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 27] New best HR@10: 0.4212, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 28] Loss: 0.0083
+num_hit:	@1	@3	@5	@10
+		0.1026	0.2270	0.3042	0.4228	
+MAP_score:	@1	@3	@5	@10
+		0.1026	0.1555	0.1730	0.1888	
+NDCG_score:	@1	@3	@5	@10
+		0.1026	0.1738	0.2055	0.2438	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 28] New best HR@10: 0.4228, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 29] Loss: 0.0078
+num_hit:	@1	@3	@5	@10
+		0.1047	0.2312	0.3091	0.4231	
+MAP_score:	@1	@3	@5	@10
+		0.1047	0.1586	0.1763	0.1914	
+NDCG_score:	@1	@3	@5	@10
+		0.1047	0.1772	0.2092	0.2460	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 29] New best HR@10: 0.4231, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 30] Loss: 0.0071
+num_hit:	@1	@3	@5	@10
+		0.1051	0.2310	0.3094	0.4264	
+MAP_score:	@1	@3	@5	@10
+		0.1051	0.1595	0.1775	0.1930	
+NDCG_score:	@1	@3	@5	@10
+		0.1051	0.1778	0.2101	0.2479	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 30] New best HR@10: 0.4264, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 31] Loss: 0.0067
+num_hit:	@1	@3	@5	@10
+		0.1120	0.2391	0.3128	0.4300	
+MAP_score:	@1	@3	@5	@10
+		0.1120	0.1661	0.1829	0.1984	
+NDCG_score:	@1	@3	@5	@10
+		0.1120	0.1848	0.2151	0.2529	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 31] New best HR@10: 0.4300, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 32] Loss: 0.0062
+num_hit:	@1	@3	@5	@10
+		0.1136	0.2439	0.3150	0.4304	
+MAP_score:	@1	@3	@5	@10
+		0.1136	0.1694	0.1855	0.2009	
+NDCG_score:	@1	@3	@5	@10
+		0.1136	0.1884	0.2176	0.2549	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 32] New best HR@10: 0.4304, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 33] Loss: 0.0057
+num_hit:	@1	@3	@5	@10
+		0.1168	0.2435	0.3209	0.4325	
+MAP_score:	@1	@3	@5	@10
+		0.1168	0.1710	0.1887	0.2034	
+NDCG_score:	@1	@3	@5	@10
+		0.1168	0.1896	0.2214	0.2573	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 33] New best HR@10: 0.4325, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 34] Loss: 0.0053
+num_hit:	@1	@3	@5	@10
+		0.1179	0.2467	0.3215	0.4344	
+MAP_score:	@1	@3	@5	@10
+		0.1179	0.1734	0.1904	0.2054	
+NDCG_score:	@1	@3	@5	@10
+		0.1179	0.1922	0.2229	0.2593	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 34] New best HR@10: 0.4344, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 35] Loss: 0.0050
+num_hit:	@1	@3	@5	@10
+		0.1213	0.2530	0.3232	0.4324	
+MAP_score:	@1	@3	@5	@10
+		0.1213	0.1777	0.1937	0.2082	
+NDCG_score:	@1	@3	@5	@10
+		0.1213	0.1970	0.2259	0.2611	
+[Epoch 35] HR@10 = 0.4324, best = 0.4344 (epoch 34)
+[Epoch 36] Loss: 0.0046
+num_hit:	@1	@3	@5	@10
+		0.1257	0.2530	0.3255	0.4301	
+MAP_score:	@1	@3	@5	@10
+		0.1257	0.1803	0.1969	0.2109	
+NDCG_score:	@1	@3	@5	@10
+		0.1257	0.1989	0.2288	0.2626	
+[Epoch 36] HR@10 = 0.4301, best = 0.4344 (epoch 34)
+[Epoch 37] Loss: 0.0043
+num_hit:	@1	@3	@5	@10
+		0.1282	0.2554	0.3254	0.4330	
+MAP_score:	@1	@3	@5	@10
+		0.1282	0.1830	0.1989	0.2132	
+NDCG_score:	@1	@3	@5	@10
+		0.1282	0.2015	0.2303	0.2650	
+[Epoch 37] HR@10 = 0.4330, best = 0.4344 (epoch 34)
+[Epoch 38] Loss: 0.0041
+num_hit:	@1	@3	@5	@10
+		0.1284	0.2563	0.3258	0.4325	
+MAP_score:	@1	@3	@5	@10
+		0.1284	0.1837	0.1995	0.2137	
+NDCG_score:	@1	@3	@5	@10
+		0.1284	0.2023	0.2309	0.2653	
+[Epoch 38] HR@10 = 0.4325, best = 0.4344 (epoch 34)
+[Epoch 39] Loss: 0.0038
+num_hit:	@1	@3	@5	@10
+		0.1306	0.2560	0.3260	0.4315	
+MAP_score:	@1	@3	@5	@10
+		0.1306	0.1848	0.2007	0.2148	
+NDCG_score:	@1	@3	@5	@10
+		0.1306	0.2030	0.2318	0.2659	
+[Epoch 39] HR@10 = 0.4315, best = 0.4344 (epoch 34)
+[Epoch 40] Loss: 0.0036
+num_hit:	@1	@3	@5	@10
+		0.1323	0.2584	0.3279	0.4325	
+MAP_score:	@1	@3	@5	@10
+		0.1323	0.1864	0.2022	0.2160	
+NDCG_score:	@1	@3	@5	@10
+		0.1323	0.2048	0.2334	0.2671	
+[Epoch 40] HR@10 = 0.4325, best = 0.4344 (epoch 34)
+[Epoch 41] Loss: 0.0033
+num_hit:	@1	@3	@5	@10
+		0.1340	0.2585	0.3278	0.4308	
+MAP_score:	@1	@3	@5	@10
+		0.1340	0.1877	0.2035	0.2172	
+NDCG_score:	@1	@3	@5	@10
+		0.1340	0.2058	0.2343	0.2676	
+[Epoch 41] HR@10 = 0.4308, best = 0.4344 (epoch 34)
+[Epoch 42] Loss: 0.0031
+num_hit:	@1	@3	@5	@10
+		0.1370	0.2602	0.3277	0.4323	
+MAP_score:	@1	@3	@5	@10
+		0.1370	0.1900	0.2053	0.2192	
+NDCG_score:	@1	@3	@5	@10
+		0.1370	0.2080	0.2357	0.2695	
+[Epoch 42] HR@10 = 0.4323, best = 0.4344 (epoch 34)
+[Epoch 43] Loss: 0.0030
+num_hit:	@1	@3	@5	@10
+		0.1388	0.2618	0.3297	0.4342	
+MAP_score:	@1	@3	@5	@10
+		0.1388	0.1915	0.2069	0.2208	
+NDCG_score:	@1	@3	@5	@10
+		0.1388	0.2095	0.2374	0.2711	
+[Epoch 43] HR@10 = 0.4342, best = 0.4344 (epoch 34)
+[Epoch 44] Loss: 0.0029
+num_hit:	@1	@3	@5	@10
+		0.1411	0.2634	0.3300	0.4340	
+MAP_score:	@1	@3	@5	@10
+		0.1411	0.1932	0.2084	0.2222	
+NDCG_score:	@1	@3	@5	@10
+		0.1411	0.2112	0.2385	0.2721	
+[Epoch 44] HR@10 = 0.4340, best = 0.4344 (epoch 34)
+[Epoch 45] Loss: 0.0026
+num_hit:	@1	@3	@5	@10
+		0.1430	0.2617	0.3310	0.4376	
+MAP_score:	@1	@3	@5	@10
+		0.1430	0.1939	0.2097	0.2239	
+NDCG_score:	@1	@3	@5	@10
+		0.1430	0.2113	0.2398	0.2742	
+📄 Saved batch eval result to result/bpr_result_aug_short_54_tfidf.csv
+✅ [Epoch 45] New best HR@10: 0.4376, model saved to checkpoints/bpr_filtered-h-and-m_best.pt
+[Epoch 46] Loss: 0.0025
+num_hit:	@1	@3	@5	@10
+		0.1450	0.2644	0.3297	0.4367	
+MAP_score:	@1	@3	@5	@10
+		0.1450	0.1967	0.2116	0.2259	
+NDCG_score:	@1	@3	@5	@10
+		0.1450	0.2140	0.2409	0.2756	
+[Epoch 46] HR@10 = 0.4367, best = 0.4376 (epoch 45)
+[Epoch 47] Loss: 0.0024
+num_hit:	@1	@3	@5	@10
+		0.1473	0.2675	0.3309	0.4356	
+MAP_score:	@1	@3	@5	@10
+		0.1473	0.1990	0.2135	0.2274	
+NDCG_score:	@1	@3	@5	@10
+		0.1473	0.2166	0.2427	0.2765	
+[Epoch 47] HR@10 = 0.4356, best = 0.4376 (epoch 45)
+[Epoch 48] Loss: 0.0023
+num_hit:	@1	@3	@5	@10
+		0.1471	0.2663	0.3315	0.4338	
+MAP_score:	@1	@3	@5	@10
+		0.1471	0.1986	0.2134	0.2270	
+NDCG_score:	@1	@3	@5	@10
+		0.1471	0.2160	0.2427	0.2757	
+[Epoch 48] HR@10 = 0.4338, best = 0.4376 (epoch 45)
+[Epoch 49] Loss: 0.0022
+num_hit:	@1	@3	@5	@10
+		0.1501	0.2685	0.3317	0.4346	
+MAP_score:	@1	@3	@5	@10
+		0.1501	0.2011	0.2155	0.2290	
+NDCG_score:	@1	@3	@5	@10
+		0.1501	0.2184	0.2443	0.2774	
+[Epoch 49] HR@10 = 0.4346, best = 0.4376 (epoch 45)
+[Epoch 50] Loss: 0.0021
+num_hit:	@1	@3	@5	@10
+		0.1508	0.2698	0.3328	0.4340	
+MAP_score:	@1	@3	@5	@10
+		0.1508	0.2023	0.2165	0.2300	
+NDCG_score:	@1	@3	@5	@10
+		0.1508	0.2196	0.2454	0.2781	
+[Epoch 50] HR@10 = 0.4340, best = 0.4376 (epoch 45)
+Model saved to checkpoints/bpr_last_filtered-h-and-m.pt

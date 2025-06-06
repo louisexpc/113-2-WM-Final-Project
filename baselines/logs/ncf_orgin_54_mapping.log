@@ -1,0 +1,453 @@
+Dataset: filtered-h-and-m, Users: 1371716, Items: 75981
+Generating training data...
+[Epoch 1] Train BCE loss: 0.708245
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_1.csv
+num_hit:	@1	@3	@5	@10
+		0.0107	0.0316	0.0499	0.0948	
+MAP_score:	@1	@3	@5	@10
+		0.0107	0.0193	0.0234	0.0292	
+NDCG_score:	@1	@3	@5	@10
+		0.0107	0.0225	0.0299	0.0443	
+✅ [Epoch 1] New best HR@10: 0.0948 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 2] Train BCE loss: 0.654869
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_2.csv
+num_hit:	@1	@3	@5	@10
+		0.0112	0.0300	0.0482	0.0985	
+MAP_score:	@1	@3	@5	@10
+		0.0112	0.0190	0.0231	0.0296	
+NDCG_score:	@1	@3	@5	@10
+		0.0112	0.0218	0.0293	0.0453	
+✅ [Epoch 2] New best HR@10: 0.0985 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 3] Train BCE loss: 0.619598
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_3.csv
+num_hit:	@1	@3	@5	@10
+		0.0078	0.0287	0.0475	0.1009	
+MAP_score:	@1	@3	@5	@10
+		0.0078	0.0166	0.0209	0.0278	
+NDCG_score:	@1	@3	@5	@10
+		0.0078	0.0197	0.0274	0.0445	
+✅ [Epoch 3] New best HR@10: 0.1009 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 4] Train BCE loss: 0.589186
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_4.csv
+num_hit:	@1	@3	@5	@10
+		0.0097	0.0293	0.0494	0.0990	
+MAP_score:	@1	@3	@5	@10
+		0.0097	0.0179	0.0224	0.0288	
+NDCG_score:	@1	@3	@5	@10
+		0.0097	0.0208	0.0290	0.0449	
+[Epoch 4] HR@10 = 0.0990, best = 0.1009 (epoch 3)
+[Epoch 5] Train BCE loss: 0.560728
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_5.csv
+num_hit:	@1	@3	@5	@10
+		0.0087	0.0310	0.0511	0.0982	
+MAP_score:	@1	@3	@5	@10
+		0.0087	0.0181	0.0226	0.0286	
+NDCG_score:	@1	@3	@5	@10
+		0.0087	0.0214	0.0296	0.0446	
+[Epoch 5] HR@10 = 0.0982, best = 0.1009 (epoch 3)
+[Epoch 6] Train BCE loss: 0.536632
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_6.csv
+num_hit:	@1	@3	@5	@10
+		0.0099	0.0308	0.0516	0.0994	
+MAP_score:	@1	@3	@5	@10
+		0.0099	0.0188	0.0234	0.0295	
+NDCG_score:	@1	@3	@5	@10
+		0.0099	0.0218	0.0303	0.0455	
+[Epoch 6] HR@10 = 0.0994, best = 0.1009 (epoch 3)
+[Epoch 7] Train BCE loss: 0.511813
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_7.csv
+num_hit:	@1	@3	@5	@10
+		0.0096	0.0310	0.0524	0.0997	
+MAP_score:	@1	@3	@5	@10
+		0.0096	0.0186	0.0234	0.0295	
+NDCG_score:	@1	@3	@5	@10
+		0.0096	0.0218	0.0305	0.0455	
+[Epoch 7] HR@10 = 0.0997, best = 0.1009 (epoch 3)
+[Epoch 8] Train BCE loss: 0.491232
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_8.csv
+num_hit:	@1	@3	@5	@10
+		0.0098	0.0309	0.0515	0.1023	
+MAP_score:	@1	@3	@5	@10
+		0.0098	0.0189	0.0235	0.0300	
+NDCG_score:	@1	@3	@5	@10
+		0.0098	0.0219	0.0303	0.0465	
+✅ [Epoch 8] New best HR@10: 0.1023 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 9] Train BCE loss: 0.470268
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_9.csv
+num_hit:	@1	@3	@5	@10
+		0.0108	0.0316	0.0529	0.1023	
+MAP_score:	@1	@3	@5	@10
+		0.0108	0.0198	0.0245	0.0309	
+NDCG_score:	@1	@3	@5	@10
+		0.0108	0.0228	0.0315	0.0472	
+[Epoch 9] HR@10 = 0.1023, best = 0.1023 (epoch 8)
+[Epoch 10] Train BCE loss: 0.451219
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_10.csv
+num_hit:	@1	@3	@5	@10
+		0.0110	0.0323	0.0545	0.1028	
+MAP_score:	@1	@3	@5	@10
+		0.0110	0.0201	0.0251	0.0314	
+NDCG_score:	@1	@3	@5	@10
+		0.0110	0.0232	0.0323	0.0477	
+✅ [Epoch 10] New best HR@10: 0.1028 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 11] Train BCE loss: 0.432947
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_11.csv
+num_hit:	@1	@3	@5	@10
+		0.0107	0.0332	0.0541	0.1053	
+MAP_score:	@1	@3	@5	@10
+		0.0107	0.0203	0.0250	0.0316	
+NDCG_score:	@1	@3	@5	@10
+		0.0107	0.0236	0.0321	0.0485	
+✅ [Epoch 11] New best HR@10: 0.1053 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 12] Train BCE loss: 0.417223
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_12.csv
+num_hit:	@1	@3	@5	@10
+		0.0110	0.0337	0.0556	0.1077	
+MAP_score:	@1	@3	@5	@10
+		0.0110	0.0207	0.0257	0.0325	
+NDCG_score:	@1	@3	@5	@10
+		0.0110	0.0240	0.0330	0.0497	
+✅ [Epoch 12] New best HR@10: 0.1077 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 13] Train BCE loss: 0.401479
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_13.csv
+num_hit:	@1	@3	@5	@10
+		0.0117	0.0349	0.0580	0.1091	
+MAP_score:	@1	@3	@5	@10
+		0.0117	0.0216	0.0268	0.0334	
+NDCG_score:	@1	@3	@5	@10
+		0.0117	0.0250	0.0344	0.0508	
+✅ [Epoch 13] New best HR@10: 0.1091 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 14] Train BCE loss: 0.387555
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_14.csv
+num_hit:	@1	@3	@5	@10
+		0.0126	0.0359	0.0595	0.1126	
+MAP_score:	@1	@3	@5	@10
+		0.0126	0.0223	0.0276	0.0345	
+NDCG_score:	@1	@3	@5	@10
+		0.0126	0.0258	0.0354	0.0524	
+✅ [Epoch 14] New best HR@10: 0.1126 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 15] Train BCE loss: 0.373857
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_15.csv
+num_hit:	@1	@3	@5	@10
+		0.0134	0.0365	0.0613	0.1146	
+MAP_score:	@1	@3	@5	@10
+		0.0134	0.0231	0.0287	0.0356	
+NDCG_score:	@1	@3	@5	@10
+		0.0134	0.0265	0.0366	0.0537	
+✅ [Epoch 15] New best HR@10: 0.1146 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 16] Train BCE loss: 0.361291
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_16.csv
+num_hit:	@1	@3	@5	@10
+		0.0145	0.0385	0.0630	0.1178	
+MAP_score:	@1	@3	@5	@10
+		0.0145	0.0245	0.0300	0.0371	
+NDCG_score:	@1	@3	@5	@10
+		0.0145	0.0281	0.0381	0.0556	
+✅ [Epoch 16] New best HR@10: 0.1178 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 17] Train BCE loss: 0.347443
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_17.csv
+num_hit:	@1	@3	@5	@10
+		0.0155	0.0402	0.0647	0.1209	
+MAP_score:	@1	@3	@5	@10
+		0.0155	0.0257	0.0311	0.0385	
+NDCG_score:	@1	@3	@5	@10
+		0.0155	0.0294	0.0394	0.0574	
+✅ [Epoch 17] New best HR@10: 0.1209 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 18] Train BCE loss: 0.336255
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_18.csv
+num_hit:	@1	@3	@5	@10
+		0.0159	0.0412	0.0669	0.1225	
+MAP_score:	@1	@3	@5	@10
+		0.0159	0.0265	0.0322	0.0395	
+NDCG_score:	@1	@3	@5	@10
+		0.0159	0.0302	0.0407	0.0586	
+✅ [Epoch 18] New best HR@10: 0.1225 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 19] Train BCE loss: 0.323091
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_19.csv
+num_hit:	@1	@3	@5	@10
+		0.0162	0.0435	0.0700	0.1264	
+MAP_score:	@1	@3	@5	@10
+		0.0162	0.0275	0.0335	0.0409	
+NDCG_score:	@1	@3	@5	@10
+		0.0162	0.0316	0.0424	0.0605	
+✅ [Epoch 19] New best HR@10: 0.1264 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 20] Train BCE loss: 0.310503
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_20.csv
+num_hit:	@1	@3	@5	@10
+		0.0163	0.0445	0.0726	0.1295	
+MAP_score:	@1	@3	@5	@10
+		0.0163	0.0280	0.0343	0.0417	
+NDCG_score:	@1	@3	@5	@10
+		0.0163	0.0322	0.0437	0.0619	
+✅ [Epoch 20] New best HR@10: 0.1295 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 21] Train BCE loss: 0.299393
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_21.csv
+num_hit:	@1	@3	@5	@10
+		0.0169	0.0468	0.0747	0.1326	
+MAP_score:	@1	@3	@5	@10
+		0.0169	0.0293	0.0356	0.0431	
+NDCG_score:	@1	@3	@5	@10
+		0.0169	0.0337	0.0452	0.0637	
+✅ [Epoch 21] New best HR@10: 0.1326 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 22] Train BCE loss: 0.286872
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_22.csv
+num_hit:	@1	@3	@5	@10
+		0.0177	0.0485	0.0777	0.1364	
+MAP_score:	@1	@3	@5	@10
+		0.0177	0.0304	0.0370	0.0446	
+NDCG_score:	@1	@3	@5	@10
+		0.0177	0.0350	0.0470	0.0657	
+✅ [Epoch 22] New best HR@10: 0.1364 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 23] Train BCE loss: 0.275744
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_23.csv
+num_hit:	@1	@3	@5	@10
+		0.0192	0.0507	0.0794	0.1402	
+MAP_score:	@1	@3	@5	@10
+		0.0192	0.0323	0.0387	0.0467	
+NDCG_score:	@1	@3	@5	@10
+		0.0192	0.0370	0.0487	0.0682	
+✅ [Epoch 23] New best HR@10: 0.1402 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 24] Train BCE loss: 0.264938
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_24.csv
+num_hit:	@1	@3	@5	@10
+		0.0205	0.0539	0.0818	0.1437	
+MAP_score:	@1	@3	@5	@10
+		0.0205	0.0343	0.0406	0.0487	
+NDCG_score:	@1	@3	@5	@10
+		0.0205	0.0393	0.0507	0.0706	
+✅ [Epoch 24] New best HR@10: 0.1437 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 25] Train BCE loss: 0.253017
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_25.csv
+num_hit:	@1	@3	@5	@10
+		0.0212	0.0549	0.0836	0.1463	
+MAP_score:	@1	@3	@5	@10
+		0.0212	0.0352	0.0416	0.0499	
+NDCG_score:	@1	@3	@5	@10
+		0.0212	0.0402	0.0519	0.0721	
+✅ [Epoch 25] New best HR@10: 0.1463 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 26] Train BCE loss: 0.241578
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_26.csv
+num_hit:	@1	@3	@5	@10
+		0.0225	0.0564	0.0857	0.1509	
+MAP_score:	@1	@3	@5	@10
+		0.0225	0.0368	0.0434	0.0519	
+NDCG_score:	@1	@3	@5	@10
+		0.0225	0.0418	0.0538	0.0747	
+✅ [Epoch 26] New best HR@10: 0.1509 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 27] Train BCE loss: 0.231541
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_27.csv
+num_hit:	@1	@3	@5	@10
+		0.0236	0.0583	0.0880	0.1527	
+MAP_score:	@1	@3	@5	@10
+		0.0236	0.0383	0.0450	0.0535	
+NDCG_score:	@1	@3	@5	@10
+		0.0236	0.0434	0.0556	0.0763	
+✅ [Epoch 27] New best HR@10: 0.1527 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 28] Train BCE loss: 0.219643
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_28.csv
+num_hit:	@1	@3	@5	@10
+		0.0245	0.0590	0.0904	0.1547	
+MAP_score:	@1	@3	@5	@10
+		0.0245	0.0391	0.0462	0.0547	
+NDCG_score:	@1	@3	@5	@10
+		0.0245	0.0442	0.0570	0.0777	
+✅ [Epoch 28] New best HR@10: 0.1547 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 29] Train BCE loss: 0.207576
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_29.csv
+num_hit:	@1	@3	@5	@10
+		0.0252	0.0611	0.0925	0.1573	
+MAP_score:	@1	@3	@5	@10
+		0.0252	0.0404	0.0475	0.0561	
+NDCG_score:	@1	@3	@5	@10
+		0.0252	0.0457	0.0586	0.0794	
+✅ [Epoch 29] New best HR@10: 0.1573 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 30] Train BCE loss: 0.196451
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_30.csv
+num_hit:	@1	@3	@5	@10
+		0.0258	0.0628	0.0943	0.1594	
+MAP_score:	@1	@3	@5	@10
+		0.0258	0.0415	0.0486	0.0572	
+NDCG_score:	@1	@3	@5	@10
+		0.0258	0.0469	0.0599	0.0808	
+✅ [Epoch 30] New best HR@10: 0.1594 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 31] Train BCE loss: 0.185788
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_31.csv
+num_hit:	@1	@3	@5	@10
+		0.0262	0.0641	0.0962	0.1629	
+MAP_score:	@1	@3	@5	@10
+		0.0262	0.0421	0.0494	0.0583	
+NDCG_score:	@1	@3	@5	@10
+		0.0262	0.0477	0.0609	0.0824	
+✅ [Epoch 31] New best HR@10: 0.1629 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 32] Train BCE loss: 0.176095
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_32.csv
+num_hit:	@1	@3	@5	@10
+		0.0260	0.0652	0.0990	0.1642	
+MAP_score:	@1	@3	@5	@10
+		0.0260	0.0426	0.0503	0.0589	
+NDCG_score:	@1	@3	@5	@10
+		0.0260	0.0484	0.0623	0.0833	
+✅ [Epoch 32] New best HR@10: 0.1642 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 33] Train BCE loss: 0.166671
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_33.csv
+num_hit:	@1	@3	@5	@10
+		0.0265	0.0666	0.1014	0.1669	
+MAP_score:	@1	@3	@5	@10
+		0.0265	0.0434	0.0513	0.0599	
+NDCG_score:	@1	@3	@5	@10
+		0.0265	0.0494	0.0636	0.0846	
+✅ [Epoch 33] New best HR@10: 0.1669 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 34] Train BCE loss: 0.156447
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_34.csv
+num_hit:	@1	@3	@5	@10
+		0.0273	0.0676	0.1030	0.1691	
+MAP_score:	@1	@3	@5	@10
+		0.0273	0.0442	0.0522	0.0608	
+NDCG_score:	@1	@3	@5	@10
+		0.0273	0.0502	0.0647	0.0859	
+✅ [Epoch 34] New best HR@10: 0.1691 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 35] Train BCE loss: 0.147427
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_35.csv
+num_hit:	@1	@3	@5	@10
+		0.0276	0.0686	0.1056	0.1714	
+MAP_score:	@1	@3	@5	@10
+		0.0276	0.0447	0.0530	0.0616	
+NDCG_score:	@1	@3	@5	@10
+		0.0276	0.0508	0.0659	0.0870	
+✅ [Epoch 35] New best HR@10: 0.1714 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 36] Train BCE loss: 0.137563
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_36.csv
+num_hit:	@1	@3	@5	@10
+		0.0277	0.0688	0.1055	0.1732	
+MAP_score:	@1	@3	@5	@10
+		0.0277	0.0449	0.0533	0.0621	
+NDCG_score:	@1	@3	@5	@10
+		0.0277	0.0510	0.0661	0.0878	
+✅ [Epoch 36] New best HR@10: 0.1732 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 37] Train BCE loss: 0.129488
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_37.csv
+num_hit:	@1	@3	@5	@10
+		0.0280	0.0696	0.1061	0.1741	
+MAP_score:	@1	@3	@5	@10
+		0.0280	0.0455	0.0538	0.0627	
+NDCG_score:	@1	@3	@5	@10
+		0.0280	0.0517	0.0666	0.0884	
+✅ [Epoch 37] New best HR@10: 0.1741 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 38] Train BCE loss: 0.120521
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_38.csv
+num_hit:	@1	@3	@5	@10
+		0.0285	0.0704	0.1065	0.1749	
+MAP_score:	@1	@3	@5	@10
+		0.0285	0.0461	0.0543	0.0633	
+NDCG_score:	@1	@3	@5	@10
+		0.0285	0.0523	0.0671	0.0891	
+✅ [Epoch 38] New best HR@10: 0.1749 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 39] Train BCE loss: 0.112663
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_39.csv
+num_hit:	@1	@3	@5	@10
+		0.0279	0.0709	0.1074	0.1770	
+MAP_score:	@1	@3	@5	@10
+		0.0279	0.0460	0.0543	0.0634	
+NDCG_score:	@1	@3	@5	@10
+		0.0279	0.0523	0.0674	0.0897	
+✅ [Epoch 39] New best HR@10: 0.1770 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 40] Train BCE loss: 0.105345
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_40.csv
+num_hit:	@1	@3	@5	@10
+		0.0280	0.0715	0.1084	0.1776	
+MAP_score:	@1	@3	@5	@10
+		0.0280	0.0462	0.0546	0.0636	
+NDCG_score:	@1	@3	@5	@10
+		0.0280	0.0526	0.0678	0.0900	
+✅ [Epoch 40] New best HR@10: 0.1776 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 41] Train BCE loss: 0.097524
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_41.csv
+num_hit:	@1	@3	@5	@10
+		0.0285	0.0715	0.1088	0.1792	
+MAP_score:	@1	@3	@5	@10
+		0.0285	0.0465	0.0550	0.0642	
+NDCG_score:	@1	@3	@5	@10
+		0.0285	0.0529	0.0682	0.0908	
+✅ [Epoch 41] New best HR@10: 0.1792 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 42] Train BCE loss: 0.090853
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_42.csv
+num_hit:	@1	@3	@5	@10
+		0.0286	0.0723	0.1092	0.1797	
+MAP_score:	@1	@3	@5	@10
+		0.0286	0.0468	0.0552	0.0644	
+NDCG_score:	@1	@3	@5	@10
+		0.0286	0.0533	0.0685	0.0911	
+✅ [Epoch 42] New best HR@10: 0.1797 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 43] Train BCE loss: 0.083933
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_43.csv
+num_hit:	@1	@3	@5	@10
+		0.0284	0.0730	0.1095	0.1805	
+MAP_score:	@1	@3	@5	@10
+		0.0284	0.0469	0.0552	0.0645	
+NDCG_score:	@1	@3	@5	@10
+		0.0284	0.0536	0.0685	0.0913	
+✅ [Epoch 43] New best HR@10: 0.1805 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 44] Train BCE loss: 0.077704
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_44.csv
+num_hit:	@1	@3	@5	@10
+		0.0279	0.0737	0.1098	0.1816	
+MAP_score:	@1	@3	@5	@10
+		0.0279	0.0469	0.0551	0.0645	
+NDCG_score:	@1	@3	@5	@10
+		0.0279	0.0538	0.0686	0.0916	
+✅ [Epoch 44] New best HR@10: 0.1816 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 45] Train BCE loss: 0.071502
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_45.csv
+num_hit:	@1	@3	@5	@10
+		0.0278	0.0727	0.1100	0.1824	
+MAP_score:	@1	@3	@5	@10
+		0.0278	0.0465	0.0550	0.0645	
+NDCG_score:	@1	@3	@5	@10
+		0.0278	0.0532	0.0685	0.0918	
+✅ [Epoch 45] New best HR@10: 0.1824 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 46] Train BCE loss: 0.065726
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_46.csv
+num_hit:	@1	@3	@5	@10
+		0.0275	0.0727	0.1106	0.1835	
+MAP_score:	@1	@3	@5	@10
+		0.0275	0.0464	0.0550	0.0645	
+NDCG_score:	@1	@3	@5	@10
+		0.0275	0.0531	0.0686	0.0920	
+✅ [Epoch 46] New best HR@10: 0.1835 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 47] Train BCE loss: 0.060417
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_47.csv
+num_hit:	@1	@3	@5	@10
+		0.0273	0.0734	0.1111	0.1843	
+MAP_score:	@1	@3	@5	@10
+		0.0273	0.0466	0.0551	0.0646	
+NDCG_score:	@1	@3	@5	@10
+		0.0273	0.0534	0.0689	0.0923	
+✅ [Epoch 47] New best HR@10: 0.1843 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 48] Train BCE loss: 0.055841
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_48.csv
+num_hit:	@1	@3	@5	@10
+		0.0276	0.0727	0.1112	0.1850	
+MAP_score:	@1	@3	@5	@10
+		0.0276	0.0465	0.0552	0.0648	
+NDCG_score:	@1	@3	@5	@10
+		0.0276	0.0532	0.0690	0.0926	
+✅ [Epoch 48] New best HR@10: 0.1850 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 49] Train BCE loss: 0.051633
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_49.csv
+num_hit:	@1	@3	@5	@10
+		0.0274	0.0726	0.1111	0.1858	
+MAP_score:	@1	@3	@5	@10
+		0.0274	0.0464	0.0551	0.0648	
+NDCG_score:	@1	@3	@5	@10
+		0.0274	0.0531	0.0688	0.0928	
+✅ [Epoch 49] New best HR@10: 0.1858 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 50] Train BCE loss: 0.046932
+📄 Saved batch eval result to result/ncf_result_aug_56_ncf_eval_ep_50.csv
+num_hit:	@1	@3	@5	@10
+		0.0275	0.0725	0.1113	0.1864	
+MAP_score:	@1	@3	@5	@10
+		0.0275	0.0464	0.0551	0.0649	
+NDCG_score:	@1	@3	@5	@10
+		0.0275	0.0530	0.0689	0.0930	
+✅ [Epoch 50] New best HR@10: 0.1864 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+Training completed. Last model saved to checkpoints/ncf_last_filtered-h-and-m.pt
