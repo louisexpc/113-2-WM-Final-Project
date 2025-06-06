@@ -4,3 +4,4 @@ articles_mapping.csv:https://drive.google.com/file/d/11gU83Y_AencftfoyoVA5TfPqUM
 customers_mapping.csv:https://drive.google.com/file/d/1s12PfU7STIzqcltITrsnc2H-DB8HSJGP/view?usp=drive_link
 product_name_examples.csv:https://drive.google.com/file/d/1OXlBWbjH8CAfOA0hBPe5F9ueP5_2lxFp/view?usp=drive_link
 article_to_idx.pkl:https://drive.google.com/file/d/1ijz5b6uTMzAJb9F5vNoe_gNANKHq_-_1/view?usp=drive_link
+articles.csv:https://drive.google.com/file/d/1TmnGs_JCxS3mszAYM05KT_knl7SjbbFr/view?usp=sharing
