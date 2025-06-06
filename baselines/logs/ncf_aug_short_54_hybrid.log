@@ -1,0 +1,410 @@
+Dataset: filtered-h-and-m, Users: 1371716, Items: 105522
+Generating training data...
+[Epoch 1] Train BCE loss: 0.384052
+num_hit:	@1	@3	@5	@10
+		0.0116	0.0366	0.0589	0.1182	
+MAP_score:	@1	@3	@5	@10
+		0.0116	0.0222	0.0272	0.0348	
+NDCG_score:	@1	@3	@5	@10
+		0.0116	0.0258	0.0350	0.0539	
+📄 Saved batch eval result to result/ncf_result_aug_short_54_hybrid.csv
+✅ [Epoch 1] New best HR@10: 0.1182 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 2] Train BCE loss: 0.228586
+num_hit:	@1	@3	@5	@10
+		0.0170	0.0537	0.0878	0.1544	
+MAP_score:	@1	@3	@5	@10
+		0.0170	0.0325	0.0403	0.0490	
+NDCG_score:	@1	@3	@5	@10
+		0.0170	0.0379	0.0520	0.0733	
+📄 Saved batch eval result to result/ncf_result_aug_short_54_hybrid.csv
+✅ [Epoch 2] New best HR@10: 0.1544 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 3] Train BCE loss: 0.168340
+num_hit:	@1	@3	@5	@10
+		0.0257	0.0839	0.1279	0.2132	
+MAP_score:	@1	@3	@5	@10
+		0.0257	0.0503	0.0603	0.0715	
+NDCG_score:	@1	@3	@5	@10
+		0.0257	0.0589	0.0770	0.1043	
+📄 Saved batch eval result to result/ncf_result_aug_short_54_hybrid.csv
+✅ [Epoch 3] New best HR@10: 0.2132 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 4] Train BCE loss: 0.145390
+num_hit:	@1	@3	@5	@10
+		0.0294	0.1004	0.1561	0.2547	
+MAP_score:	@1	@3	@5	@10
+		0.0294	0.0593	0.0719	0.0850	
+NDCG_score:	@1	@3	@5	@10
+		0.0294	0.0698	0.0926	0.1244	
+📄 Saved batch eval result to result/ncf_result_aug_short_54_hybrid.csv
+✅ [Epoch 4] New best HR@10: 0.2547 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 5] Train BCE loss: 0.129650
+num_hit:	@1	@3	@5	@10
+		0.0335	0.1116	0.1702	0.2799	
+MAP_score:	@1	@3	@5	@10
+		0.0335	0.0664	0.0798	0.0943	
+NDCG_score:	@1	@3	@5	@10
+		0.0335	0.0780	0.1021	0.1374	
+📄 Saved batch eval result to result/ncf_result_aug_short_54_hybrid.csv
+✅ [Epoch 5] New best HR@10: 0.2799 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 6] Train BCE loss: 0.118463
+num_hit:	@1	@3	@5	@10
+		0.0344	0.1177	0.1786	0.2918	
+MAP_score:	@1	@3	@5	@10
+		0.0344	0.0690	0.0828	0.0977	
+NDCG_score:	@1	@3	@5	@10
+		0.0344	0.0814	0.1064	0.1428	
+📄 Saved batch eval result to result/ncf_result_aug_short_54_hybrid.csv
+✅ [Epoch 6] New best HR@10: 0.2918 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 7] Train BCE loss: 0.110418
+num_hit:	@1	@3	@5	@10
+		0.0352	0.1165	0.1814	0.2972	
+MAP_score:	@1	@3	@5	@10
+		0.0352	0.0691	0.0838	0.0990	
+NDCG_score:	@1	@3	@5	@10
+		0.0352	0.0812	0.1078	0.1450	
+📄 Saved batch eval result to result/ncf_result_aug_short_54_hybrid.csv
+✅ [Epoch 7] New best HR@10: 0.2972 – model saved to checkpoints/ncf_filtered-h-and-m_best.pt
+[Epoch 8] Train BCE loss: 0.103761
+num_hit:	@1	@3	@5	@10
+		0.0368	0.1183	0.1812	0.2959	
+MAP_score:	@1	@3	@5	@10
+		0.0368	0.0709	0.0850	0.1003	
+NDCG_score:	@1	@3	@5	@10
+		0.0368	0.0830	0.1087	0.1457	
+[Epoch 8] HR@10 = 0.2959, best = 0.2972 (epoch 7)
+[Epoch 9] Train BCE loss: 0.097867
+num_hit:	@1	@3	@5	@10
+		0.0383	0.1146	0.1792	0.2932	
+MAP_score:	@1	@3	@5	@10
+		0.0383	0.0705	0.0850	0.1000	
+NDCG_score:	@1	@3	@5	@10
+		0.0383	0.0817	0.1081	0.1448	
+[Epoch 9] HR@10 = 0.2932, best = 0.2972 (epoch 7)
+[Epoch 10] Train BCE loss: 0.092425
+num_hit:	@1	@3	@5	@10
+		0.0365	0.1157	0.1788	0.2901	
+MAP_score:	@1	@3	@5	@10
+		0.0365	0.0697	0.0841	0.0988	
+NDCG_score:	@1	@3	@5	@10
+		0.0365	0.0815	0.1074	0.1433	
+[Epoch 10] HR@10 = 0.2901, best = 0.2972 (epoch 7)
+[Epoch 11] Train BCE loss: 0.086609
+num_hit:	@1	@3	@5	@10
+		0.0369	0.1139	0.1775	0.2822	
+MAP_score:	@1	@3	@5	@10
+		0.0369	0.0693	0.0837	0.0974	
+NDCG_score:	@1	@3	@5	@10
+		0.0369	0.0807	0.1067	0.1404	
+[Epoch 11] HR@10 = 0.2822, best = 0.2972 (epoch 7)
+[Epoch 12] Train BCE loss: 0.080789
+num_hit:	@1	@3	@5	@10
+		0.0374	0.1108	0.1674	0.2828	
+MAP_score:	@1	@3	@5	@10
+		0.0374	0.0687	0.0816	0.0968	
+NDCG_score:	@1	@3	@5	@10
+		0.0374	0.0795	0.1027	0.1399	
+[Epoch 12] HR@10 = 0.2828, best = 0.2972 (epoch 7)
+[Epoch 13] Train BCE loss: 0.074743
+num_hit:	@1	@3	@5	@10
+		0.0382	0.1097	0.1699	0.2791	
+MAP_score:	@1	@3	@5	@10
+		0.0382	0.0686	0.0822	0.0965	
+NDCG_score:	@1	@3	@5	@10
+		0.0382	0.0791	0.1038	0.1388	
+[Epoch 13] HR@10 = 0.2791, best = 0.2972 (epoch 7)
+[Epoch 14] Train BCE loss: 0.068618
+num_hit:	@1	@3	@5	@10
+		0.0379	0.1087	0.1666	0.2785	
+MAP_score:	@1	@3	@5	@10
+		0.0379	0.0682	0.0813	0.0961	
+NDCG_score:	@1	@3	@5	@10
+		0.0379	0.0786	0.1023	0.1383	
+[Epoch 14] HR@10 = 0.2785, best = 0.2972 (epoch 7)
+[Epoch 15] Train BCE loss: 0.062485
+num_hit:	@1	@3	@5	@10
+		0.0374	0.1067	0.1658	0.2771	
+MAP_score:	@1	@3	@5	@10
+		0.0374	0.0669	0.0803	0.0951	
+NDCG_score:	@1	@3	@5	@10
+		0.0374	0.0771	0.1013	0.1373	
+[Epoch 15] HR@10 = 0.2771, best = 0.2972 (epoch 7)
+[Epoch 16] Train BCE loss: 0.056024
+num_hit:	@1	@3	@5	@10
+		0.0382	0.1056	0.1647	0.2759	
+MAP_score:	@1	@3	@5	@10
+		0.0382	0.0668	0.0803	0.0950	
+NDCG_score:	@1	@3	@5	@10
+		0.0382	0.0767	0.1011	0.1369	
+[Epoch 16] HR@10 = 0.2759, best = 0.2972 (epoch 7)
+[Epoch 17] Train BCE loss: 0.049596
+num_hit:	@1	@3	@5	@10
+		0.0386	0.1092	0.1680	0.2773	
+MAP_score:	@1	@3	@5	@10
+		0.0386	0.0685	0.0819	0.0965	
+NDCG_score:	@1	@3	@5	@10
+		0.0386	0.0789	0.1031	0.1384	
+[Epoch 17] HR@10 = 0.2773, best = 0.2972 (epoch 7)
+[Epoch 18] Train BCE loss: 0.043276
+num_hit:	@1	@3	@5	@10
+		0.0381	0.1104	0.1690	0.2749	
+MAP_score:	@1	@3	@5	@10
+		0.0381	0.0685	0.0818	0.0958	
+NDCG_score:	@1	@3	@5	@10
+		0.0381	0.0792	0.1032	0.1374	
+[Epoch 18] HR@10 = 0.2749, best = 0.2972 (epoch 7)
+[Epoch 19] Train BCE loss: 0.037161
+num_hit:	@1	@3	@5	@10
+		0.0377	0.1106	0.1717	0.2788	
+MAP_score:	@1	@3	@5	@10
+		0.0377	0.0681	0.0820	0.0962	
+NDCG_score:	@1	@3	@5	@10
+		0.0377	0.0790	0.1041	0.1386	
+[Epoch 19] HR@10 = 0.2788, best = 0.2972 (epoch 7)
+[Epoch 20] Train BCE loss: 0.031349
+num_hit:	@1	@3	@5	@10
+		0.0382	0.1092	0.1716	0.2781	
+MAP_score:	@1	@3	@5	@10
+		0.0382	0.0681	0.0822	0.0963	
+NDCG_score:	@1	@3	@5	@10
+		0.0382	0.0786	0.1041	0.1385	
+[Epoch 20] HR@10 = 0.2781, best = 0.2972 (epoch 7)
+[Epoch 21] Train BCE loss: 0.025942
+num_hit:	@1	@3	@5	@10
+		0.0378	0.1091	0.1695	0.2784	
+MAP_score:	@1	@3	@5	@10
+		0.0378	0.0679	0.0816	0.0961	
+NDCG_score:	@1	@3	@5	@10
+		0.0378	0.0785	0.1033	0.1384	
+[Epoch 21] HR@10 = 0.2784, best = 0.2972 (epoch 7)
+[Epoch 22] Train BCE loss: 0.020989
+num_hit:	@1	@3	@5	@10
+		0.0380	0.1086	0.1712	0.2798	
+MAP_score:	@1	@3	@5	@10
+		0.0380	0.0680	0.0822	0.0967	
+NDCG_score:	@1	@3	@5	@10
+		0.0380	0.0784	0.1040	0.1392	
+[Epoch 22] HR@10 = 0.2798, best = 0.2972 (epoch 7)
+[Epoch 23] Train BCE loss: 0.016710
+num_hit:	@1	@3	@5	@10
+		0.0375	0.1109	0.1712	0.2806	
+MAP_score:	@1	@3	@5	@10
+		0.0375	0.0685	0.0822	0.0967	
+NDCG_score:	@1	@3	@5	@10
+		0.0375	0.0793	0.1041	0.1394	
+[Epoch 23] HR@10 = 0.2806, best = 0.2972 (epoch 7)
+[Epoch 24] Train BCE loss: 0.013103
+num_hit:	@1	@3	@5	@10
+		0.0384	0.1113	0.1740	0.2832	
+MAP_score:	@1	@3	@5	@10
+		0.0384	0.0690	0.0832	0.0977	
+NDCG_score:	@1	@3	@5	@10
+		0.0384	0.0798	0.1055	0.1408	
+[Epoch 24] HR@10 = 0.2832, best = 0.2972 (epoch 7)
+[Epoch 25] Train BCE loss: 0.010084
+num_hit:	@1	@3	@5	@10
+		0.0374	0.1109	0.1720	0.2832	
+MAP_score:	@1	@3	@5	@10
+		0.0374	0.0685	0.0822	0.0970	
+NDCG_score:	@1	@3	@5	@10
+		0.0374	0.0793	0.1043	0.1402	
+[Epoch 25] HR@10 = 0.2832, best = 0.2972 (epoch 7)
+[Epoch 26] Train BCE loss: 0.007585
+num_hit:	@1	@3	@5	@10
+		0.0366	0.1084	0.1746	0.2869	
+MAP_score:	@1	@3	@5	@10
+		0.0366	0.0668	0.0819	0.0967	
+NDCG_score:	@1	@3	@5	@10
+		0.0366	0.0774	0.1046	0.1408	
+[Epoch 26] HR@10 = 0.2869, best = 0.2972 (epoch 7)
+[Epoch 27] Train BCE loss: 0.005738
+num_hit:	@1	@3	@5	@10
+		0.0378	0.1108	0.1759	0.2868	
+MAP_score:	@1	@3	@5	@10
+		0.0378	0.0685	0.0833	0.0979	
+NDCG_score:	@1	@3	@5	@10
+		0.0378	0.0793	0.1060	0.1417	
+[Epoch 27] HR@10 = 0.2868, best = 0.2972 (epoch 7)
+[Epoch 28] Train BCE loss: 0.004313
+num_hit:	@1	@3	@5	@10
+		0.0353	0.1102	0.1754	0.2880	
+MAP_score:	@1	@3	@5	@10
+		0.0353	0.0669	0.0816	0.0965	
+NDCG_score:	@1	@3	@5	@10
+		0.0353	0.0779	0.1047	0.1409	
+[Epoch 28] HR@10 = 0.2880, best = 0.2972 (epoch 7)
+[Epoch 29] Train BCE loss: 0.003226
+num_hit:	@1	@3	@5	@10
+		0.0355	0.1096	0.1751	0.2917	
+MAP_score:	@1	@3	@5	@10
+		0.0355	0.0670	0.0818	0.0972	
+NDCG_score:	@1	@3	@5	@10
+		0.0355	0.0779	0.1047	0.1423	
+[Epoch 29] HR@10 = 0.2917, best = 0.2972 (epoch 7)
+[Epoch 30] Train BCE loss: 0.002429
+num_hit:	@1	@3	@5	@10
+		0.0359	0.1127	0.1762	0.2902	
+MAP_score:	@1	@3	@5	@10
+		0.0359	0.0683	0.0826	0.0977	
+NDCG_score:	@1	@3	@5	@10
+		0.0359	0.0797	0.1056	0.1424	
+[Epoch 30] HR@10 = 0.2902, best = 0.2972 (epoch 7)
+[Epoch 31] Train BCE loss: 0.001836
+num_hit:	@1	@3	@5	@10
+		0.0353	0.1112	0.1774	0.2893	
+MAP_score:	@1	@3	@5	@10
+		0.0353	0.0672	0.0821	0.0969	
+NDCG_score:	@1	@3	@5	@10
+		0.0353	0.0784	0.1055	0.1415	
+[Epoch 31] HR@10 = 0.2893, best = 0.2972 (epoch 7)
+[Epoch 32] Train BCE loss: 0.001416
+num_hit:	@1	@3	@5	@10
+		0.0348	0.1117	0.1764	0.2900	
+MAP_score:	@1	@3	@5	@10
+		0.0348	0.0674	0.0820	0.0972	
+NDCG_score:	@1	@3	@5	@10
+		0.0348	0.0787	0.1052	0.1420	
+[Epoch 32] HR@10 = 0.2900, best = 0.2972 (epoch 7)
+[Epoch 33] Train BCE loss: 0.001075
+num_hit:	@1	@3	@5	@10
+		0.0340	0.1114	0.1776	0.2904	
+MAP_score:	@1	@3	@5	@10
+		0.0340	0.0667	0.0816	0.0966	
+NDCG_score:	@1	@3	@5	@10
+		0.0340	0.0781	0.1052	0.1416	
+[Epoch 33] HR@10 = 0.2904, best = 0.2972 (epoch 7)
+[Epoch 34] Train BCE loss: 0.000832
+num_hit:	@1	@3	@5	@10
+		0.0344	0.1117	0.1779	0.2907	
+MAP_score:	@1	@3	@5	@10
+		0.0344	0.0673	0.0823	0.0973	
+NDCG_score:	@1	@3	@5	@10
+		0.0344	0.0787	0.1058	0.1422	
+[Epoch 34] HR@10 = 0.2907, best = 0.2972 (epoch 7)
+[Epoch 35] Train BCE loss: 0.000672
+num_hit:	@1	@3	@5	@10
+		0.0331	0.1124	0.1789	0.2910	
+MAP_score:	@1	@3	@5	@10
+		0.0331	0.0666	0.0816	0.0965	
+NDCG_score:	@1	@3	@5	@10
+		0.0331	0.0783	0.1055	0.1417	
+[Epoch 35] HR@10 = 0.2910, best = 0.2972 (epoch 7)
+[Epoch 36] Train BCE loss: 0.000549
+num_hit:	@1	@3	@5	@10
+		0.0329	0.1122	0.1791	0.2926	
+MAP_score:	@1	@3	@5	@10
+		0.0329	0.0665	0.0816	0.0966	
+NDCG_score:	@1	@3	@5	@10
+		0.0329	0.0782	0.1055	0.1421	
+[Epoch 36] HR@10 = 0.2926, best = 0.2972 (epoch 7)
+[Epoch 37] Train BCE loss: 0.000423
+num_hit:	@1	@3	@5	@10
+		0.0318	0.1109	0.1791	0.2924	
+MAP_score:	@1	@3	@5	@10
+		0.0318	0.0649	0.0803	0.0954	
+NDCG_score:	@1	@3	@5	@10
+		0.0318	0.0766	0.1046	0.1412	
+[Epoch 37] HR@10 = 0.2924, best = 0.2972 (epoch 7)
+[Epoch 38] Train BCE loss: 0.000330
+num_hit:	@1	@3	@5	@10
+		0.0315	0.1126	0.1796	0.2908	
+MAP_score:	@1	@3	@5	@10
+		0.0315	0.0656	0.0807	0.0954	
+NDCG_score:	@1	@3	@5	@10
+		0.0315	0.0776	0.1050	0.1409	
+[Epoch 38] HR@10 = 0.2908, best = 0.2972 (epoch 7)
+[Epoch 39] Train BCE loss: 0.000266
+num_hit:	@1	@3	@5	@10
+		0.0311	0.1115	0.1786	0.2924	
+MAP_score:	@1	@3	@5	@10
+		0.0311	0.0648	0.0799	0.0949	
+NDCG_score:	@1	@3	@5	@10
+		0.0311	0.0767	0.1041	0.1408	
+[Epoch 39] HR@10 = 0.2924, best = 0.2972 (epoch 7)
+[Epoch 40] Train BCE loss: 0.000213
+num_hit:	@1	@3	@5	@10
+		0.0308	0.1118	0.1788	0.2927	
+MAP_score:	@1	@3	@5	@10
+		0.0308	0.0649	0.0801	0.0952	
+NDCG_score:	@1	@3	@5	@10
+		0.0308	0.0769	0.1044	0.1412	
+[Epoch 40] HR@10 = 0.2927, best = 0.2972 (epoch 7)
+[Epoch 41] Train BCE loss: 0.000174
+num_hit:	@1	@3	@5	@10
+		0.0310	0.1124	0.1800	0.2915	
+MAP_score:	@1	@3	@5	@10
+		0.0310	0.0649	0.0803	0.0951	
+NDCG_score:	@1	@3	@5	@10
+		0.0310	0.0771	0.1048	0.1408	
+[Epoch 41] HR@10 = 0.2915, best = 0.2972 (epoch 7)
+[Epoch 42] Train BCE loss: 0.000145
+num_hit:	@1	@3	@5	@10
+		0.0307	0.1131	0.1795	0.2931	
+MAP_score:	@1	@3	@5	@10
+		0.0307	0.0649	0.0799	0.0950	
+NDCG_score:	@1	@3	@5	@10
+		0.0307	0.0772	0.1043	0.1411	
+[Epoch 42] HR@10 = 0.2931, best = 0.2972 (epoch 7)
+[Epoch 43] Train BCE loss: 0.000125
+num_hit:	@1	@3	@5	@10
+		0.0296	0.1109	0.1801	0.2942	
+MAP_score:	@1	@3	@5	@10
+		0.0296	0.0636	0.0792	0.0944	
+NDCG_score:	@1	@3	@5	@10
+		0.0296	0.0757	0.1040	0.1409	
+[Epoch 43] HR@10 = 0.2942, best = 0.2972 (epoch 7)
+[Epoch 44] Train BCE loss: 0.000105
+num_hit:	@1	@3	@5	@10
+		0.0298	0.1121	0.1803	0.2940	
+MAP_score:	@1	@3	@5	@10
+		0.0298	0.0640	0.0794	0.0945	
+NDCG_score:	@1	@3	@5	@10
+		0.0298	0.0763	0.1042	0.1409	
+[Epoch 44] HR@10 = 0.2940, best = 0.2972 (epoch 7)
+[Epoch 45] Train BCE loss: 0.000090
+num_hit:	@1	@3	@5	@10
+		0.0281	0.1118	0.1799	0.2942	
+MAP_score:	@1	@3	@5	@10
+		0.0281	0.0630	0.0784	0.0936	
+NDCG_score:	@1	@3	@5	@10
+		0.0281	0.0755	0.1034	0.1403	
+[Epoch 45] HR@10 = 0.2942, best = 0.2972 (epoch 7)
+[Epoch 46] Train BCE loss: 0.000078
+num_hit:	@1	@3	@5	@10
+		0.0272	0.1116	0.1809	0.2946	
+MAP_score:	@1	@3	@5	@10
+		0.0272	0.0625	0.0781	0.0932	
+NDCG_score:	@1	@3	@5	@10
+		0.0272	0.0750	0.1034	0.1400	
+[Epoch 46] HR@10 = 0.2946, best = 0.2972 (epoch 7)
+[Epoch 47] Train BCE loss: 0.000068
+num_hit:	@1	@3	@5	@10
+		0.0262	0.1102	0.1805	0.2934	
+MAP_score:	@1	@3	@5	@10
+		0.0262	0.0614	0.0773	0.0924	
+NDCG_score:	@1	@3	@5	@10
+		0.0262	0.0738	0.1027	0.1392	
+[Epoch 47] HR@10 = 0.2934, best = 0.2972 (epoch 7)
+[Epoch 48] Train BCE loss: 0.000059
+num_hit:	@1	@3	@5	@10
+		0.0263	0.1115	0.1812	0.2943	
+MAP_score:	@1	@3	@5	@10
+		0.0263	0.0618	0.0775	0.0926	
+NDCG_score:	@1	@3	@5	@10
+		0.0263	0.0745	0.1030	0.1395	
+[Epoch 48] HR@10 = 0.2943, best = 0.2972 (epoch 7)
+[Epoch 49] Train BCE loss: 0.000051
+num_hit:	@1	@3	@5	@10
+		0.0249	0.1099	0.1811	0.2944	
+MAP_score:	@1	@3	@5	@10
+		0.0249	0.0606	0.0767	0.0918	
+NDCG_score:	@1	@3	@5	@10
+		0.0249	0.0732	0.1023	0.1390	
+[Epoch 49] HR@10 = 0.2944, best = 0.2972 (epoch 7)
+[Epoch 50] Train BCE loss: 0.000045
+num_hit:	@1	@3	@5	@10
+		0.0248	0.1107	0.1815	0.2945	
+MAP_score:	@1	@3	@5	@10
+		0.0248	0.0606	0.0766	0.0917	
+NDCG_score:	@1	@3	@5	@10
+		0.0248	0.0734	0.1024	0.1389	
+[Epoch 50] HR@10 = 0.2945, best = 0.2972 (epoch 7)
+Training completed. Last model saved to checkpoints/ncf_last_filtered-h-and-m.pt

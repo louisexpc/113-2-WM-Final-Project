@@ -1,89 +1,69 @@
 # 113-2-WM-Final-Project
 
-# Dataset - H&M Kaggel
+## Dataset - H&M Kaggel
 - [link of H&M Kaggle dataset](https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data)
 
-# Generated_imgs
-- [link](https://drive.google.com/drive/folders/1f3mHljg80oDsPfm3zyTsnXIiZzbEsuY3?usp=drive_link)
 
 # Project Structure
 ```
-- data: only for small data
-- eda: 
-   - output: pics of eda_result.md
-- preprocessing: 
-- src
+.
+├── baselines/
+│   ├── ana_bpr.py
+│   ├── bpr.py
+│   ├── ncf.py
+│   ├── readme.md         # <-- 基準模型的執行說明
+│   ├── train_bpr.py
+│   └── train_ncf.py
+│
+├── data_preprocessing/
+│   ├── preprocess_transaction.ipynb
+│   └── sessions_transform.ipynb
+│
+├── eda/
+│   ├── articles_eda.ipynb
+│   └── session_eda.ipynb
+│
+├── src/
+│   ├── config/
+│   ├── dataset/
+│   ├── modules/
+│   ├── prompts/
+│   ├── utils/
+│   ├── README.md         # <-- 主要 LLM 流程的執行說明
+│   ├── requirements.txt
+│   ├── run.py
+│   └── run.sh
+│
+└── README.md             # <-- 您正在閱讀的這份總說明檔案
 ```
+---
+## 各目錄功能說明
+- `src`  
+這是本專案的核心部分，包含一個完整的多階段 LLM Session Augmentation 流程，可參考下方流程圖。它會處理使用者會話 (Session)，生成新的產品概念，並將其對應到真實世界的商品。若您想執行主要的 LLM Augmentation流程，請參考此目錄下的說明。
+> ![](./eda/outputs/A4%20-%201.jpg) 
 
-# Data 使用方式
-- [Data Space](https://drive.google.com/drive/folders/15yY3Y58dTSp_yLDWK5TkhHQZEE-My069?usp=sharing)
-- Data Folder Structure
-    ```
-    ├── original data/ : Kaggle Origial Data
-    ├── mapping data/  : Data with id mapping and preprocessing
-    ├── baseline data/ : Data for baseline model (without id mapping)
-    ```
-## Classification of `mapping data`
-- Mapping Dict:
-    | Filename | Description                                                               |
-    |----------|---------------------------------------------------------------------------|
-    | `customer_to_idx.pkl`               | `Dict[ orgin customer_id : int ]`              | 
-    | `idx_to_customer.pkl`               | `Dict[ int : orgin customer_id ]`               |
-    | `article_to_idx.pkl`                | `Dict[ orgin article_id : int ]`               | 
-    | `idx_to_article.pkl`                | `Dict[ int : orgin article_i ]`                | 
-- Data without preprocessing:
-    | Filename | Description                                                               |
-    |----------|---------------------------------------------------------------------------|
-    | `transaction_train_mapping.csv`       | 將原始 `customer_id`,`article_id` 進行 mapping| 
-    | `articles_mapping.csv`                | 將原始 `article_id` 進行 mapping              |
-    | `customer_mapping.csv`                | 將原始 `customer_id` 進行 mapping             | 
-                         
-- Data after preprocessing: 
-    | Step | Description                                                            | Output Filename(s)       |
-    |------|------------------------------------------------------------------------|-----------------------------------------------|
-    | 1    | Remove articles without `detail_desc` feature                          | `transaction_train_mapping_clean.csv`         |
-    | 2    | Remove articles with fewer than 5 transaction records (Cold Start)     | `transaction_5_mapping.csv`                   |
-    | 3    | Remove transactions older than 24 weeks for each customer              | —                                             |
-    | 4    | Remove customers with fewer than `4` or `6` transactions or more than `30` transactions| `transaction_5_4_30_mapping.csv` / `transaction_5_6_30_mapping.csv` |
-    | 5    | Turn transaction record into session-based data                        | `session_5_4_30_mapping.pkl` / `session_5_6_30_mapping.pkl`         |
+- `baselines`  
+這個目錄存放了數個傳統但有效的推薦演算法，例如 BPR (Bayesian Personalized Ranking) 和 NCF (Neural Collaborative Filtering)。這些模型被用來作為比較 src 中 Augmentation 效能的基準線。若您想訓練或評估這些經典模型，請參考此目錄下的說明。
 
+- `data_preprocessing`  
+此目錄包含對 H&M 資料集進行前處理的 Jupyter Notebooks。主要功能是將原始交易資料轉換為模型可用的會話格式 (session-based format)。這是所有模型（包含 `src` 和 `baselines`）執行前的第一步
 
-## Quick Start
-- For `transaction_....csv`
-    ```python
-    # Default data type for each cols
-    trans = pd.read_csv(r"C:\113-2-WM-Final-Project\data\transactions_train.csv",
-                 parse_dates=['t_dat'],
-                 dtype={
-                     'customer_id':'int',
-                     'article_id': 'int',
-                     'price': 'float'
-                     'sales_channel_id':'int'
-                 })
+- `eda`  
+此目錄存放用於探索性資料分析的 Jupyter Notebooks。透過分析商品 (`articles`) 和使用者會話 (`session`) 的特性，來獲取對資料的洞察，並作為模型設計的依據。
+
+## 如何開始 (Getting Started)
+根據您的目標，請參考對應的 `README.md` 檔案來執行：
+
+### 🚀 執行主要的 LLM Session Augmentation 流程
+1. 進入 src 目錄：
     ```
-- For `*.pkl`:
-    ```python
-    import pickle
-    with open(r"your_file.pkl", "rb") as f:
-        file = pickle.load(f)
+    cd src
     ```
-## Data Format
-- For `session_...` : `Dict[str, Dict[str, list]]`
+    詳細閱讀並遵循 `src/README.md` 中的指引來安裝依賴套件、設定環境並執行完整的步驟。
+
+### 📊 執行基準模型 (BPR/NCF)
+1. 
     ```
-    sessions : {
-        customer_id: {
-            'article_id'      : [int, ...],
-            't_dat'           : [Timestamp, ...],
-            'price'           : [float32, ...],
-            'sales_channel_id': [int, ...]
-        },
-        ...
-     }
+    cd baselines
     ```
-- For baseline dataset: `Dict[str, List[int]]`
-    ```
-    -   user_session : Dict[str, List[int]]
-            { uid: [iid_1, iid_2, ..., iid_n] }
-    -   testing_data : Dict[str, List[int]]
-            { uid: [neg_1, ..., neg_99, test_item] }
-    ```
+    詳細閱讀並遵循 `baselines/readme.md` 中的指引來安裝依賴套件、設定環境並執行完整的模型訓練與比較。
