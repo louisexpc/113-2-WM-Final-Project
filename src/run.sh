@@ -33,12 +33,12 @@ SESSION_OUTPUT_PREFIX="origin_5_4_mapping"
 NUM_NEG=99
 SEED=42
 
-if ! $PYTHON run_session_split.py \
+if ! $PYTHON generate_testset_from_sessions.py \
     --input_path "$SESSION_INPUT" \
     --output_prefix "$SESSION_OUTPUT_PREFIX" \
     --num_neg "$NUM_NEG" \
     --seed "$SEED"; then
-    echo "run_session_split.py 執行失敗，終止流程。"
+    echo "generate_testset_from_sessions.py 執行失敗，終止流程。"
     exit 1
 fi
 
