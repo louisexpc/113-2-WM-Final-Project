@@ -87,7 +87,7 @@ def run_generate_product_names_vllm(cfg, output_dir, logger, model, tokenizer):
     sessions_dict = load_pickle(cfg.data.input_path)
     """Update: 統一輸入資料格式"""
     customers_df = pd.read_csv(cfg.data.customers_path)
-    output_path = os.path.join(output_dir, os.path.basename(cfg.data.output_path))
+    output_path = os.path.join(cfg.data.output_path)
 
     processed_users = load_existing_user_ids(output_path)
     logger.info(f"🗂️ 已處理 {len(processed_users)} 位使用者")

@@ -20,7 +20,7 @@ save:
   checkpoint_path: dataset/enriched_sessions_4_checkpoint.pkl
   final_output_path: dataset/enriched_sessions_4_final.pkl
   batch_size: 5 # Save every N users
-  max_users: 10000
+  max_users: 5
 
 device:
   cuda_visible_devices: "6"
