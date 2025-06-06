@@ -1,6 +1,6 @@
-product_types.csv:1r_Rjz41otic6kCEdmA4xa30b3hwEsN9D 
-sessions_5_4_30_mapping.pkl:1bl-_CRQhkbn_okipyRSpHbBZYbpB-mer
-articles_mapping.csv:11gU83Y_AencftfoyoVA5TfPqUMvXvbsC
-customers_mapping.csv:1s12PfU7STIzqcltITrsnc2H-DB8HSJGP
-product_name_examples.csv:1OXlBWbjH8CAfOA0hBPe5F9ueP5_2lxFp
-article_to_idx.pkl:1ijz5b6uTMzAJb9F5vNoe_gNANKHq_-_1
+product_types.csv:https://drive.google.com/file/d/1r_Rjz41otic6kCEdmA4xa30b3hwEsN9D/view?usp=drive_link
+sessions_5_4_30_mapping.pkl:https://drive.google.com/file/d/1bl-_CRQhkbn_okipyRSpHbBZYbpB-mer/view?usp=drive_link
+articles_mapping.csv:https://drive.google.com/file/d/11gU83Y_AencftfoyoVA5TfPqUMvXvbsC/view?usp=drive_link
+customers_mapping.csv:https://drive.google.com/file/d/1s12PfU7STIzqcltITrsnc2H-DB8HSJGP/view?usp=drive_link
+product_name_examples.csv:https://drive.google.com/file/d/1OXlBWbjH8CAfOA0hBPe5F9ueP5_2lxFp/view?usp=drive_link
+article_to_idx.pkl:https://drive.google.com/file/d/1ijz5b6uTMzAJb9F5vNoe_gNANKHq_-_1/view?usp=drive_link
